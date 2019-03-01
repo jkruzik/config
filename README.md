@@ -1,5 +1,7 @@
-#Arch install
-##Get install medium
+# Arch install
+
+
+## Get install medium
 [Download image](https://www.archlinux.org/download/)
 
 Put img on a drive
@@ -7,14 +9,17 @@ Put img on a drive
 dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 ```
 
+
 ## Network
 ```
 wifi-menu
 timedatectl set-ntp true
 ```
 
+
 ## HDD
 [wiki](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LUKS_on_a_partition)
+
 ### Wipe
 [wiki](https://wiki.archlinux.org/index.php/Dm-crypt/Drive_preparation)
 ```
@@ -23,24 +28,28 @@ dd if=/dev/zero of=/dev/mapper/wipe status=progress
 cryptsetup close wipe
 ```
 ### Partition
+
 ```
 fdisk /dev/sdx
 mkswap /dev/sdx2
 swapon /dev/sdx2
 mkfs.fat -F32 /dev/sdx1
 ```
+
 ### Encrypt
 ```
 cryptsetup -y -v luksFormat -s 512 --type luks2 /dev/sdx3
 cryptsetup open /dev/sdx3 cryptroot
 mkfs.ext4 -m 0.5 /dev/mapper/cryptroot
 ```
+
 ### Mount
 ```
 mount /dev/mapper/cryptroot /mnt
 mkdir /mnt/boot
 mount /dev/sdx1 /mnt/boot
 ```
+
 
 ## Pacman
 ```
@@ -57,6 +66,7 @@ pacstrap /mnt base base-devel vim
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
+
 ### Clock
 ```
 ln -sf /usr/share/zoneinfo/Europe/Prague /etc/localtime
@@ -98,6 +108,7 @@ passwd
 ```
 useradd -m jakub
 passwd jakub
+visudo
 ```
 
 ### Install AUR helper
@@ -109,6 +120,15 @@ git clone https://aur.archlinux.org/pikaur.git
 cd pikaur
 makepkg -fsri
 ```
+
+### Install pkgs
+```
+cd ~
+git clone https://github.com/jkruzik/config.git
+cd config
+bash install.sh
+```
+
 
 ## Reboot
 ```
