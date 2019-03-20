@@ -1,0 +1,34 @@
+[connection]
+id=eduroam
+uuid=540b8f5c-fc83-41c9-a2d6-ac4e3012c3a5
+type=wifi
+interface-name=wlp3s0
+permissions=
+
+[wifi]
+#enter mac
+mac-address=
+mac-address-blacklist=
+mode=infrastructure
+ssid=eduroam
+
+[wifi-security]
+key-mgmt=wpa-eap
+
+[802-1x]
+ca-cert=/home/jakub/config/nm/chain_TERENA_SSL_CA_3.pem
+eap=peap;
+identity=kru0097@vsb.cz
+#enter passwd
+password=
+phase2-auth=mschapv2
+
+[ipv4]
+dns-search=
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+ip6-privacy=0
+method=auto

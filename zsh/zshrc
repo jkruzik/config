@@ -1,0 +1,123 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000000
+SAVEHIST=10000
+setopt autocd
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/jakub/.zshrc'
+setopt extended_glob
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+autoload -U promptinit
+promptinit
+
+# allow approximate
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+#opts
+setopt chase_links 
+setopt complete_in_word
+setopt correct
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt list_types
+
+export EDITOR="vim"
+export TERM='konsole-256color'
+###easy life
+# tab completion for PID :D
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+
+# useful for path editing — backward-delete-word, but with / as additional delimiter
+backward-delete-to-slash () {
+  local WORDCHARS=${WORDCHARS//\//}
+  zle .backward-delete-word
+}
+zle -N backward-delete-to-slash
+
+#aliases devel
+alias cdperm='cd ~/devel/permon/'
+alias cdfllop='cd ~/devel/permon/fllop_jakub/'
+alias cdpcube='cd ~/devel/permon/permoncube/'
+
+#aliases servers
+alias archer='ssh -t archer "exec zsh"'
+
+#aliases
+alias ls='ls --color=auto'
+alias ll='ls -lh --color=auto'
+alias lla='ls -lah --color=auto'
+alias cp='cp -v'
+alias mv='mv -v'
+alias rm='rm -v'
+alias cpv='cp'
+alias mvv='mv'
+alias rmv='rm'
+alias calc='python ~/devel/calc/calc.py'
+alias c='python ~/devel/calc/calc.py'
+alias rsmp='RANDOM=RANDOM; smplayer "$(ls | sed -n "$(($[${RANDOM}%$(ls | wc -l)]+1))p")"'
+alias rsmpr='RANDOM=`od -vAn -N4 -tu4 < /dev/random`; smplayer "$(find . -type f -size +100M | sed -n "$(($[${RANDOM}%$(find . -type f -size +100M| wc -l)]+1))p")"'
+alias dict='lynx slovnik.cz'
+alias rfeh='RANDOM=RANDOM; feh "$(ls -d $(find .)| sed -n "$(($[${RANDOM}%$(ls -d $(find .) | wc -l)]+1))p")"'
+alias rafeh='RANDOM=RANDOM; feh "$(ls -1| sed -n "$(($[${RANDOM}%$(ls -1 | wc -l)]+1))p")"'
+
+#auto ext
+alias -s doc=libreoffice
+alias -s gz='tar -xzvf'
+alias -s bz2='tar -xjvf'
+alias -s txt=$EDITOR
+
+# command L equivalent to command |less
+alias -g L='|less' 
+
+# command S equivalent to command &> /dev/null &
+alias -g S='&> /dev/null &'
+
+#options
+autoload -U colors && colors
+PROMPT="%{$fg[cyan]%}%n@%m %1~ %#%{$reset_color%} "
+export PATH=$PATH:/usr/bin
+
+###key binding
+autoload zkbd
+function zkbd_file() {
+    [[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
+    [[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
+    return 1
+}
+
+[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
+keyfile=$(zkbd_file)
+ret=$?
+if [[ ${ret} -ne 0 ]]; then
+    zkbd
+    keyfile=$(zkbd_file)
+    ret=$?
+fi
+if [[ ${ret} -eq 0 ]] ; then
+    source "${keyfile}"
+else
+    printf 'Failed to setup keys using zkbd.\n'
+fi
+unfunction zkbd_file; unset keyfile ret
+
+# setup key accordingly
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-history
+[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+bindkey '^[w' backward-delete-to-slash
+
+bindkey '^r' history-incremental-search-backward
+

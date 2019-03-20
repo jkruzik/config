@@ -1,0 +1,7 @@
+[Added Associations]
+application/binary=okularApplication_tiff.desktop;
+application/pdf=okularApplication_pdf.desktop;
+application/vnd.wolfram.mathematica.package=org.kde.kate.desktop;
+
+[Default Applications]
+application/pdf=okular.desktop

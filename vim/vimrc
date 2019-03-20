@@ -1,0 +1,239 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'mhinz/vim-signify'
+
+Plugin 'bling/vim-bufferline'
+
+Plugin 'sjl/gundo.vim'
+
+Plugin 'lervag/vimtex'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on     " iequired!
+"
+"" Brief help
+" :PluginList       - lists configured plugins
+" " :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" " :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+" "
+" " see :h vundle for more details or wiki for FAQ
+" " Put your non-Plugin stuff after this line
+
+
+" leader is comma
+let mapleader = ","
+let maplocalleader = ','
+" jk is escape
+inoremap jk <esc>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ycm
+let g:ycm_confirm_extra_conf = 0
+
+" toggle gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+"signify
+let g:signify_vcs_list = ['hg', 'git']
+let g:signify_update_on_focusgained = 1
+
+"vimtex +ycm
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+  endif
+  let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+"vimtex
+let g:vimtex_view_general_viewer = 'okular'
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"background
+set background=dark
+colorscheme desert
+
+" Enable syntax highlighting
+syntax enable
+
+" load filetype-specific indent files
+filetype indent on
+
+" Turn on the WiLd menu
+set wildmenu
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+else
+    set wildignore+=.git\*,.hg\*,.svn\*
+endif
+
+"Always show current position
+"set ruler
+
+"Show status
+set laststatus=2
+
+"number
+set number
+set relativenumber
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+"
+" Start search while typing
+set incsearch
+
+" Highlight search results
+set hlsearch
+
+" turn off search highlight
+" nnoremap <leader><space> :nohlsearch<CR>
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+"highlight column
+set colorcolumn=80
+set colorcolumn+=120
+highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
+highlight ColorColumn ctermbg=238
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+"backspace for insert
+set backspace=indent,eol,start
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=2
+set tabstop=2
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM yank buffers
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"increase the size of buffers
+set viminfo='50,<1000,s1000,h
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set indentexpr=GetIndent()
+
+function GetIndent()
+  let lnum = prevnonblank(v:lnum - 1)
+  let ind = indent(lnum)
+  return ind
+endfunction
+
+function! InsertTry()
+  normal STRY(  );
+  normal hh
+  startinsert
+endfunction
+noremap <leader>t :call InsertTry()<CR>
+
+function! InsertIerr()
+  normal Sierr = );CHKERRQ(ierr);
+  normal 15h
+  startinsert
+endfunction
+noremap <leader>e :call InsertIerr()<CR>
+
+function! InsertCcomment()
+  normal a /*  */
+  normal hh
+  startinsert
+endfunction
+noremap <leader>c :call InsertCcomment()<CR>
+
