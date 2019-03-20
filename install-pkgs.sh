@@ -3,7 +3,9 @@ INSTALL_CMD='pikaur -S --noconfirm --needed'
 # graphics
 $INSTALL_CMD xorg-xbacklight 
 $INSTALL_CMD xorg-xrandr 
-$INSTALL_CMD xorg-xrdb 
+$INSTALL_CMD xorg-xrdb
+$INSTALL_CMD xorg-xinit
+$INSTALL_CMD mesa-demos
 $INSTALL_CMD nvidia nvidia-settings lib32-nvidia-utils 
 
 # general apps
@@ -48,11 +50,13 @@ $INSTALL_CMD texstudio
 
 # devel
 $INSTALL_CMD llvm clang 
+$INSTALL_CMD cmake
 $INSTALL_CMD gcc-fortran 
 $INSTALL_CMD gdb 
 $INSTALL_CMD git 
 $INSTALL_CMD gitkraken 
 $INSTALL_CMD mercurial 
+$INSTALL_CMD octave
 $INSTALL_CMD openmp 
 $INSTALL_CMD python-pip 
 $INSTALL_CMD valgrind 
@@ -91,6 +95,7 @@ $INSTALL_CMD qlipper-git
 # usability
 $INSTALL_CMD bluez 
 $INSTALL_CMD bluez-utils 
+$INSTALL_CMD cups
 $INSTALL_CMD hdparm 
 $INSTALL_CMD lsof 
 $INSTALL_CMD ncurses5-compat-libs #matlab
