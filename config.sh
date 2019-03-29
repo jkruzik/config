@@ -16,31 +16,34 @@ sudo cp ${pwd}/nm/eduroam.nmconnection /etc/NetworkManager/system-connections/
 echo "Fill in /etc/NetworkManager/system-connections/eduroam.nmconnection and restart NetworkManager.service"
 
 mkdir -p $HOME/.config/i3
-ln -s ${pwd}/i3/* $HOME/.config/i3/
+ln -sf $(pwd)/i3/* $HOME/.config/i3/
 
-ln -s ${pwd}/kosonle/konsolerc $HOME/.config/
+ln -sf $(pwd)/kosonle/konsolerc $HOME/.config/
 mkdir -p $HOME/.local/share/konsole/
-ln -s ${pwd}/konsole/profile.profile $HOME/.local/share/konsole/
+ln -sf $(pwd)/konsole/profile.profile $HOME/.local/share/konsole/
 
-ln -s ${pwd}/okular/okularrc $HOME/.config/
+ln -sf $(pwd)/okular/okularrc $HOME/.config/
 
 mkdir -p $HOME/.config/qt5ct
-ln -s ${pwd}/qt5ct/qt5ct.conf $HOME/.config/qt5ct/
+ln -sf $(pwd)/qt5ct/qt5ct.conf $HOME/.config/qt5ct/
+cp /usr/share/color-schemes/BreezeDark.colors $HOME/.config/kdeglobals
 
-ln -s ${pwd}/vim/vimrc $HOME/.vimrc
+ln -sf $(pwd)/vim/vimrc $HOME/.vimrc
 
-ln -s ${pwd}/gtk-3.0 $HOME/.config/
+ln -sf $(pwd)/gtk-3.0 $HOME/.config/
 
-ln -s ${pwd}/mimeapps.list $HOME/.config/
+ln -sf $(pwd)/mimeapps.list $HOME/.config/
 
-ln -s ${pwd}/octave $HOME/.config/
+ln -sf $(pwd)/octave $HOME/.config/
 
-ln -s ${pwd}/polybar $HOME/.config/
+ln -sf $(pwd)/polybar $HOME/.config/
 
-ln -s ${pwd}/xorg/xinitrc $HOME/.xinitrc
-ln -s ${pwd}/xorg/xprofile $HOME/.xprofile
-ln -s ${pwd}/xorg/Xresources $HOME/.Xresources
+ln -sf $(pwd)/xorg/xinitrc $HOME/.xinitrc
+ln -sf $(pwd)/xorg/xprofile $HOME/.xprofile
+ln -sf $(pwd)/xorg/Xresources $HOME/.Xresources
 
-ln -s ${pwd}/zsh/zshrc $HOME/.zshrc
-ln -s ${pwd}/zsh/profile $HOME/.zprofile
+ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc
+ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile
+
+chsh -s /bin/zsh
 
