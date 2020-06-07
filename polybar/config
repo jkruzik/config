@@ -24,7 +24,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-monitor = ${env:MONITOR:eDP-1-1}
+monitor = ${env:MONITOR:DP-6}
 width = 100%
 height = 20
 ;offset-x = 1%
@@ -54,7 +54,7 @@ font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
 
 modules-left = left_start_indicator left_end_indicator i3 i3_end_indicator
 modules-center = 
-modules-right = pulseaudio wlan filesystem memory cpu battery temperature xkeyboard date powermenu
+modules-right = right_end_indicator player-mpris-tail pulseaudio filesystem memory cpu temperature xkeyboard date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -62,9 +62,9 @@ modules-right = pulseaudio wlan filesystem memory cpu battery temperature xkeybo
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-wm-restack = i3
+;wm-restack = i3
 
-override-redirect = false
+;override-redirect = false
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -75,8 +75,7 @@ cursor-click = pointer
 tray-position = right
 tray-detached    = false
 tray-maxsize     = 12
-tray-transparent = false
-tray-background  = #FF0000
+tray-background  = ${colors.background-1}
 tray-offset-x    = 0
 tray-offset-y    = 0
 tray-padding     = 0
@@ -108,6 +107,18 @@ content-prefix            = %{T3}%{T-}
 content-prefix-foreground = ${colors.background-0}
 content-prefix-background = ${colors.background-1}
 
+[module/right_end_indicator]
+type = custom/text
+
+content            = %{T3}%{T-}
+content-foreground = ${colors.background-1}
+content-background = ${colors.background-0}
+
+content-prefix            = %{T3}%{T-}
+content-prefix-foreground = ${colors.background-0}
+content-prefix-background = ${colors.background-1}
+
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -115,8 +126,6 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
-blacklist-1 = caps lock
-blacklist-2 = scroll lock
 
 ;format-prefix = ""
 ;format-prefix-foreground = ${colors.foreground-alt}
@@ -154,7 +163,7 @@ strip-wsnumbers = false
 pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
-label-focused = "%{B#888 F#000}%{T3}%{T-}%{F-B-} %name% %{B#000 F#888}%{T3}%{T-}%{F-B-}"
+label-focused = "%{B#888 F#000}%{T3}%{T-}%{F-B-} %index% - %name% %{B#000 F#888}%{T3}%{T-}%{F-B-}"
 label-focused-background = ${colors.background-0}
 label-focused-foreground = ${colors.background-3}
 
@@ -220,6 +229,18 @@ label-padding = 1
 label-foreground = ${colors.foreground}
 label-background = ${colors.background-1}
 
+format = <ramp-load><label>%{F-}
+ramp-load-0 = 
+ramp-load-1 = 
+ramp-load-2 = 
+ramp-load-3 = 
+ramp-load-4 = 
+ramp-load-5 = 
+ramp-load-6 = 
+ramp-load-7 = %{F#f2ff00}
+ramp-load-8 = %{F#ff8400}
+ramp-load-9 = %{F#bd2c40}
+
 format-background = ${colors.background-1}
 
 [module/memory]
@@ -227,9 +248,22 @@ type = internal/memory
 interval = 2
 
 label            = %{T4}%{T-}%percentage_used:3%%
-label-foreground = ${colors.foreground}
+;label-foreground = ${colors.foreground}
 label-background = ${colors.background-2}
 label-padding    = 1
+
+format = <ramp-used><label>%{F-}
+
+ramp-used-0 = 
+ramp-used-1 = 
+ramp-used-2 = 
+ramp-used-3 = 
+ramp-used-4 = 
+ramp-used-5 = 
+ramp-used-6 = 
+ramp-used-7 = %{F#f2ff00}
+ramp-used-8 = %{F#ff8400}
+ramp-used-9 = %{F#bd2c40}
 
 format-background        = ${colors.background-2}
 format-prefix            = %{T3}%{T-}
@@ -241,7 +275,7 @@ format-suffix-background = ${colors.background-2}
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp5s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -292,11 +326,11 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date =
-date-alt = " %Y-%m-%d"
+date = " %Y-%m-%d"
+;date-alt = " %Y-%m-%d"
 
 time = %H:%M:%S
-time-alt = %H:%M:%S
+;time-alt = %H:%M:%S
 
 label = %date% %time%
 label-foreground = ${colors.foreground}
@@ -305,45 +339,66 @@ label-background = ${colors.background-2}
 format-prefix            = %{T3}%{T-}
 format-prefix-foreground = ${colors.background-2}
 format-prefix-background = ${colors.background-1}
+format-suffix            = %{T3}%{T-}
+format-suffix-foreground = ${colors.background-1}
+format-suffix-background = ${colors.background-2}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-; Sink to be used, if it exists (find using `pacmd list-sinks`)
-; ; If not, uses default sink
-; sink = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume = <bar-volume> <label-volume> 
+label-volume = %percentage:4%%
 
-; Available tags:
-; ;   <label-volume> (default)
-; ;   <ramp-volume>
-; ;   <bar-volume>
-; format-volume = <ramp-volume> <label-volume>
-;
-; ; Available tags:
-; ;   <label-muted> (default)
-; ;   <ramp-volume>
-; ;   <bar-volume>
-; ;format-muted = <label-muted>
-;
-; ; Available tokens:
-; ;   %percentage% (default)
-; ;label-volume = %percentage%%
-;
-; ; Available tokens:
-; ;   %percentage% (default)
-label-muted = 🔇 muted
-label-muted-foreground = #66
-;;
-;; Only applies if <ramp-volume> is used
-;ramp-volume-0 = 🔈
-;ramp-volume-1 = 🔉
-;ramp-volume-2 = 🔊
+format-muted = <bar-volume> <label-muted> 
+label-muted = muted
+;label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.background-1}
+
+format-volume-background        = ${colors.background-2}
+format-volume-prefix            = %{T3}%{T-}
+format-volume-prefix-foreground = ${colors.background-2}
+format-volume-prefix-background = ${colors.background-1}
+format-volume-suffix            = %{T3}%{T-}
+format-volume-suffix-foreground = ${colors.background-1}
+format-volume-suffix-background = ${colors.background-2}
+
+format-muted-background        = ${colors.background-2}
+format-muted-prefix            = %{T3}%{T-}
+format-muted-prefix-foreground = ${colors.background-2}
+format-muted-prefix-background = ${colors.background-1}
+format-muted-suffix            = %{T3}%{T-}
+format-muted-suffix-foreground = ${colors.background-1}
+format-muted-suffix-background = ${colors.background-2}
+
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/.config/polybar/player-mpris-tail.py --icon-playing '' --icon-paused '' -f ' {icon} {artist} - {title} '
+tail = true
+click-left = ~/.config/polybar/player-mpris-tail.py play-pause &
+click-middle = ~/.config/polybar/player-mpris-tail.py previous &
+click-right = ~/.config/polybar/player-mpris-tail.py next &
 
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = AC
-;full-at = 98
+adapter = ADP1
+full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
@@ -370,7 +425,7 @@ animation-charging-framerate = 750
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 80
-internal = 2
+interval = 2
 
 format                        = <ramp><label>
 format-foreground             = ${colors.foreground}
@@ -391,19 +446,21 @@ format-warn-suffix            = %{T3}%{T-}
 format-warn-suffix-foreground = ${colors.background-1}
 format-warn-suffix-background = ${colors.alert}
 
-label                 = "%temperature:2% "
+label                 = "%temperature-c:2% "
 label-foreground      = ${colors.foreground}
 label-background      = ${colors.background-2}
-label-warn            = "%temperature:2% "
+label-warn            = "%temperature-c:2% "
 label-warn-foreground = ${colors.foreground}
 label-warn-background = ${colors.alert}
 
 ramp-0 = " %{T5}%{T-} "
 ramp-1 = " %{T5}%{T-} "
-ramp-2 = " %{T5}%{T-} "
-ramp-3 = " %{T5}%{T-} "
-ramp-4 = " %{T5}%{T-} "
-ramp-5 = " %{T5}%{T-} "
+ramp-2 = " %{T5}%{T-} "
+ramp-3 = " %{T5}%{T-} "
+ramp-4 = " %{T5}%{T-} "
+ramp-5 = " %{T5}%{T-} "
+ramp-6 = " %{T5}%{T-} "
+ramp-7 = " %{T5}%{T-} "
 
 [module/powermenu]
 type = custom/menu
