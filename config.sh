@@ -5,6 +5,10 @@ services=(
   org.cups.cupsd.socket
 )
 
+uservices=(
+  mpris-proxy.service
+)
+
 for s in "${services[@]}"; do
   sudo systemctl enable $s
   sudo systemctl start $s
@@ -21,7 +25,7 @@ ln -sf $(pwd)/i3/* $HOME/.config/i3/
 mkdir -p $HOME/.config/dunst
 ln -sf $(pwd)/dunst/dunstrc $HOME/.config/dunst
 
-ln -sf $(pwd)/kosonle/konsolerc $HOME/.config/
+ln -sf $(pwd)/konsole/konsolerc $HOME/.config/
 mkdir -p $HOME/.local/share/konsole/
 ln -sf $(pwd)/konsole/profile.profile $HOME/.local/share/konsole/
 
@@ -41,6 +45,9 @@ ln -sf $(pwd)/octave $HOME/.config/
 
 ln -sf $(pwd)/polybar $HOME/.config/
 
+mkdir -p $HOME/.config/systemd/user
+ln -sf $(pwd)/systemd/mpris-proxy.service $HOME/.config/systemd/user/
+
 ln -sf $(pwd)/xorg/xinitrc $HOME/.xinitrc
 ln -sf $(pwd)/xorg/xprofile $HOME/.xprofile
 ln -sf $(pwd)/xorg/Xresources $HOME/.Xresources
@@ -50,3 +57,7 @@ ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile
 
 chsh -s /bin/zsh
 
+for s in "${uservices[@]}"; do
+  sudo systemctl --user enable $s
+  sudo systemctl --user start $s
+done

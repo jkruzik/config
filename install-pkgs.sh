@@ -80,6 +80,8 @@ $INSTALL_CMD i3blocks
 $INSTALL_CMD i3lock 
 $INSTALL_CMD i3status 
 $INSTALL_CMD polybar-git 
+$INSTALL_CMD python-dbus
+$INSTALL_CMD python-gobject
 $INSTALL_CMD qt5ct 
 $INSTALL_CMD redshift 
 $INSTALL_CMD sddm 

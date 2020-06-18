@@ -42,6 +42,8 @@ let mapleader = ","
 let maplocalleader = ','
 " jk is escape
 inoremap jk <esc>
+" default to not read-only in vimdiff
+set noro
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
