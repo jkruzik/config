@@ -7,7 +7,7 @@ $INSTALL_CMD xorg-xrdb
 $INSTALL_CMD xorg-xinit
 $INSTALL_CMD mesa-demos
 #$INSTALL_CMD nvidia nvidia-settings #lib32-nvidia-utils 
-$INSTALL_CMD xf86-video-amdgpu mesa #lib32-mesa
+#$INSTALL_CMD xf86-video-amdgpu mesa #lib32-mesa
 
 # general apps
 ## archives
@@ -23,7 +23,7 @@ $INSTALL_CMD dolphin
 $INSTALL_CMD dropbox 
 $INSTALL_CMD filelight 
 $INSTALL_CMD gwenview 
-$INSTALL_CMD golden-cheetah-dev 
+$INSTALL_CMD golden-cheetah-git
 ## others
 $INSTALL_CMD gvim 
 $INSTALL_CMD kate 
@@ -73,6 +73,7 @@ $INSTALL_CMD supertuxkart
 $INSTALL_CMD breeze breeze-gtk 
 $INSTALL_CMD compton 
 $INSTALL_CMD dmenu 
+$INSTALL_CMD dunst
 $INSTALL_CMD feh
 $INSTALL_CMD i3-gaps 
 $INSTALL_CMD i3blocks 
@@ -110,12 +111,12 @@ $INSTALL_CMD youtube-dl
 $INSTALL_CMD zsh 
 $INSTALL_CMD zsh-completions 
 
-#vim
+vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
-#https://www.vim.org/scripts/script.php?script_id=3600
+https://www.vim.org/scripts/script.php?script_id=3600
 mkdir -p ~/.vim/syntax
 curl 'https://www.vim.org/scripts/download_script.php?src_id=24730' -o ~/.vim/syntax/octave.vim
 

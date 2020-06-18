@@ -18,6 +18,9 @@ echo "Fill in /etc/NetworkManager/system-connections/eduroam.nmconnection and re
 mkdir -p $HOME/.config/i3
 ln -sf $(pwd)/i3/* $HOME/.config/i3/
 
+mkdir -p $HOME/.config/dunst
+ln -sf $(pwd)/dunst/dunstrc $HOME/.config/dunst
+
 ln -sf $(pwd)/kosonle/konsolerc $HOME/.config/
 mkdir -p $HOME/.local/share/konsole/
 ln -sf $(pwd)/konsole/profile.profile $HOME/.local/share/konsole/
