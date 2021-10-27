@@ -45,16 +45,15 @@ padding-right = 0
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
 font-0 = Iosevka Term:fontformat=truetype:pixelsize=10:antialias=true;2
-font-1 = Iosevka Nerd Font Mono:fontformat=truetype:size=18:antialias=true;3
+font-1 = Iosevka:fontformat=truetype:size=18:antialias=true;3
 font-2 = Iosevka Term::fontformat=truetype:pixelsize=9:antialias=true;2
 font-3 = "Material Icons:pixelsize=14;3"
 font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
 ;font-3 = "Font Awesome 5 Free:style=Regular:size=10;3"
-;font-5 = "Font Awesome 5 Brands:style=Regular:size=10;3"
 
 modules-left = left_start_indicator left_end_indicator i3 i3_end_indicator
 modules-center = 
-modules-right = right_end_indicator player-mpris-tail pulseaudio filesystem memory cpu temperature xkeyboard date
+modules-right = right_end_indicator player-mpris-tail pulseaudio battery backlight wlan memory cpu temperature xkeyboard date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -163,22 +162,22 @@ strip-wsnumbers = false
 pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
-label-focused = "%{B#888 F#000}%{T3}%{T-}%{F-B-} %index% - %name% %{B#000 F#888}%{T3}%{T-}%{F-B-}"
+label-focused = "%{B#888}%{F#000}%{T3}%{T-} %index% - %name% %{B#000}%{F#888}%{T3}%{T-}%{F-}%{B-}"
 label-focused-background = ${colors.background-0}
 label-focused-foreground = ${colors.background-3}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = "%{B#222 F#000}%{T3}%{T-}%{F-B-} %name% %{B#000 F#222}%{T3}%{T-}"
+label-unfocused = "%{B#222 F#000}%{T3}%{T-}%{F-}%{B-} %name% %{B#000 F#222}%{T3}%{T-}"
 label-unfocused-background = ${colors.background-1}
 label-unfocused-foreground = ${colors.foreground}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = "%{B#666 F#000}%{T3}%{T-}%{F-B-} %name% %{B#000 F#666}%{T3}%{T-}%{F-B-}"
+label-visible = "%{B#666 F#000}%{T3}%{T-} %name% %{B#000 F#666}%{T3}%{T-}%{F-}%{B-}"
 label-visible-background = ${colors.background-0}
 label-visible-foreground = ${colors.background-3}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = "%{B#ff000f F#303651}%{T3}%{T-}%{F-B-} %name% %{B#303651 F#ff000f}%{T3}%{T-}%{F-B-}"
+label-urgent = "%{B#ff000f F#303651}%{T3}%{T-} %name% %{B#303651 F#ff000f}%{T3}%{T-}%{F-}%{B-}"
 label-urgent-background = ${colors.alert}
 
 ; Separator in between workspaces
@@ -198,8 +197,11 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
+[module/backlight]
+type = internal/backlight
+card = amdgpu_bl0
+
+use-actual-brightness = false
 
 format = <label> <bar>
 label = BL
@@ -215,10 +217,6 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
@@ -275,7 +273,7 @@ format-suffix-background = ${colors.background-2}
 
 [module/wlan]
 type = internal/network
-interface = wlp5s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -406,13 +404,19 @@ format-charging-underline = #ffb52a
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = %{T2}%{T-}
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = %{T2}%{T-}
+ramp-capacity-1 = %{T2}%{T-}
+ramp-capacity-3 = %{T2}%{T-}
+ramp-capacity-4 = %{T2}%{T-}
+ramp-capacity-5 = %{T2}%{T-}
+ramp-capacity-6 = %{T2}%{T-}
+ramp-capacity-7 = %{T2}%{T-}
+ramp-capacity-8 = %{T2}%{T-}
+ramp-capacity-9 = %{T2}%{T-}
 ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 

@@ -220,7 +220,7 @@ bindsym Control+Mod1+l exec i3lock -f -c 111111
 #exec gpmdp
 #exec parcellite
 #exec nvidia-settings --assign "CurrentMetaMode=DPY-6.1: nvidia-auto-select @1920x1080 +1920+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}, DPY-6.3: nvidia-auto-select @1920x1080 +0+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}"
-exec compton -CGb
+exec picom -CGb
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always ~/.config/i3/i3-autoname-workspaces.py &
 exec_always --no-startup-id xsetroot -solid "#333333"

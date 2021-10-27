@@ -7,7 +7,7 @@ $INSTALL_CMD xorg-xrdb
 $INSTALL_CMD xorg-xinit
 $INSTALL_CMD mesa-demos
 #$INSTALL_CMD nvidia nvidia-settings #lib32-nvidia-utils 
-#$INSTALL_CMD xf86-video-amdgpu mesa #lib32-mesa
+$INSTALL_CMD xf86-video-amdgpu mesa lib32-mesa
 
 # general apps
 ## archives
@@ -25,7 +25,9 @@ $INSTALL_CMD filelight
 $INSTALL_CMD gwenview 
 $INSTALL_CMD golden-cheetah-git
 ## others
+$INSTALL_CMD gimp
 $INSTALL_CMD gvim 
+$INSTALL_CMD inkscape 
 $INSTALL_CMD kate 
 $INSTALL_CMD konsole 
 $INSTALL_CMD ksysguard 
@@ -37,10 +39,11 @@ $INSTALL_CMD pavucontrol
 $INSTALL_CMD spectacle 
 $INSTALL_CMD thunderbird 
 $INSTALL_CMD tigervnc 
+$INSTALL_CMD xournalpp 
 
 #network
 $INSTALL_CMD openssh ksshaskpass kwallet-pam kwalletmanager 
-#$INSTALL_CMD network-manager-applet networkmanager networkmanager-dmenu-git networkmanager-openconnect 
+$INSTALL_CMD network-manager-applet networkmanager networkmanager-dmenu-git networkmanager-openconnect 
 $INSTALL_CMD openconnect 
 $INSTALL_CMD rsync 
 
@@ -113,14 +116,6 @@ $INSTALL_CMD youtube-dl
 $INSTALL_CMD zsh 
 $INSTALL_CMD zsh-completions 
 
-vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
-https://www.vim.org/scripts/script.php?script_id=3600
-mkdir -p ~/.vim/syntax
-curl 'https://www.vim.org/scripts/download_script.php?src_id=24730' -o ~/.vim/syntax/octave.vim
 
 # other
 #$INSTALL_CMD ncurses5-compat-libs #matlab

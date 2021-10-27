@@ -16,7 +16,7 @@ ssid=eduroam
 key-mgmt=wpa-eap
 
 [802-1x]
-ca-cert=/home/jakub/config/nm/chain_TERENA_SSL_CA_3.pem
+ca-cert=/home/jakub/config/nm/chain_GEANT_OV_RSA_CA_4.pem
 eap=peap;
 identity=kru0097@vsb.cz
 #enter passwd
