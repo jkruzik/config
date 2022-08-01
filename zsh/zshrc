@@ -88,7 +88,7 @@ alias -g S='&> /dev/null &'
 #options
 autoload -U colors && colors
 PROMPT="%{$fg[cyan]%}%n@%m %1~ %#%{$reset_color%} "
-export PATH=$PATH:/usr/bin
+export PATH=$PATH:/usr/bin:~/bin
 
 ###key binding
 autoload zkbd

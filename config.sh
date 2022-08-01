@@ -15,7 +15,7 @@ done
 
 # configs
 sudo mkdir -p /etc/NetworkManager/system-connections/
-sudo cp ${pwd}/nm/eduroam.nmconnection /etc/NetworkManager/system-connections/
+sudo cp $(pwd)/nm/eduroam.nmconnection /etc/NetworkManager/system-connections/
 echo "Fill in /etc/NetworkManager/system-connections/eduroam.nmconnection and restart NetworkManager.service"
 
 mkdir -p $HOME/.config/i3

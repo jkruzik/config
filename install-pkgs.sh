@@ -6,8 +6,9 @@ $INSTALL_CMD xorg-xrandr
 $INSTALL_CMD xorg-xrdb
 $INSTALL_CMD xorg-xinit
 $INSTALL_CMD mesa-demos
-#$INSTALL_CMD nvidia nvidia-settings #lib32-nvidia-utils 
-$INSTALL_CMD xf86-video-amdgpu mesa lib32-mesa
+$INSTALL_CMD nvidia nvidia-settings lib32-nvidia-utils nvidia-prime
+$INSTALL_CMD xf86-video-modesetting
+#$INSTALL_CMD xf86-video-amdgpu mesa lib32-mesa
 
 # general apps
 ## archives
@@ -110,8 +111,7 @@ $INSTALL_CMD ntfs-3g
 $INSTALL_CMD ntp 
 $INSTALL_CMD poppler-glib 
 $INSTALL_CMD psmisc 
-$INSTALL_CMD pulseaudio 
-$INSTALL_CMD pulseaudio-bluetooth 
+$INSTALL_CMD pipewire pipewire-pulse 
 $INSTALL_CMD youtube-dl 
 $INSTALL_CMD zsh 
 $INSTALL_CMD zsh-completions 

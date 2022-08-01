@@ -24,7 +24,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-monitor = ${env:MONITOR:DP-6}
+monitor = ${env:MONITOR:}
 width = 100%
 height = 20
 ;offset-x = 1%
@@ -53,7 +53,8 @@ font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
 
 modules-left = left_start_indicator left_end_indicator i3 i3_end_indicator
 modules-center = 
-modules-right = right_end_indicator player-mpris-tail pulseaudio battery backlight wlan memory cpu temperature xkeyboard date
+;modules-right = right_end_indicator player-mpris-tail pulseaudio battery backlight wlan memory cpu temperature xkeyboard date
+modules-right = right_end_indicator pulseaudio battery backlight wlan memory cpu temperature xkeyboard date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -199,11 +200,12 @@ label-song-ellipsis = true
 
 [module/backlight]
 type = internal/backlight
-card = amdgpu_bl0
+card = intel_backlight
 
 use-actual-brightness = false
 
-format = <label> <bar>
+;format = <label> <bar>
+format = <bar>
 label = BL
 
 bar-width = 10
@@ -427,7 +429,7 @@ animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
+thermal-zone = 8
 warn-temperature = 80
 interval = 2
 

@@ -4,8 +4,50 @@ shouldShowMenuBarComingFromFullScreen=true
 shouldShowToolBarComingFromFullScreen=false
 
 [MainWindow]
+DP-4 DP-3 Height 2560x1440=1400
+DP-4 DP-3 Width 2560x1440=1276
+DP-4 DP-3 XPosition 2560x1440=1282
+DP-4 DP-3 YPosition 2560x1440=38
 Height 1080=1080
 Height 1200=1164
-State=AAAA/wAAAAD9AAAAAAAAA7wAAARvAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAAB3wAAAPxAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAQAAAAEAAAAsAHEAdQBpAGMAawBBAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHICAAAAAP////8AAAAAAAAAAAAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAACIAYQBuAG4AbwB0AGEAdABpAG8AbgBUAG8AbwBsAEIAYQByAAAAAAD/////AAAAAAAAAAA=
 ToolBarsMovable=Disabled
 Width 1920=956
+eDP-1 DP-1 Height 1920x1080=1040
+eDP-1 DP-1 Width 1920x1080=956
+eDP-1 DP-1 XPosition 1920x1080=2882
+eDP-1 DP-1 YPosition 1920x1080=38
+eDP-1 DP-3 Height 1920x1080=1040
+eDP-1 DP-3 Height 3840x2160=2160
+eDP-1 DP-3 Width 1920x1080=1916
+eDP-1 DP-3 Width 3840x2160=3840
+eDP-1 DP-3 XPosition 1920x1080=2
+eDP-1 DP-3 XPosition 3840x2160=0
+eDP-1 DP-3 YPosition 1920x1080=38
+eDP-1 DP-3 YPosition 3840x2160=0
+eDP-1 Height 1920x1080=1080
+eDP-1 Width 1920x1080=1920
+eDP-1 XPosition 1920x1080=0
+eDP-1 YPosition 1920x1080=0
+eDP1 Height 1920x1080=1040
+eDP1 Width 1920x1080=1916
+eDP1 XPosition 1920x1080=2
+eDP1 YPosition 1920x1080=38
+
+[Recent Files]
+File1[$e]=$HOME/devel/permonbac/results/2017-01-21-pless/salomon/graphs/graph0logDof.pdf
+File2[$e]=$HOME/devel/permonbac/results/2017-01-21-pless/salomon/graphs/graph0logDof_hess.pdf
+File3[$e]=$HOME/Numerical_Optimization2006.pdf
+File4[$e]=$HOME/R. Fletcher - Practical methods of optimization-Wiley (2000).djvu
+File5[$e]=$HOME/Documents/presentations/22PANM/main.pdf
+File6[$e]=$HOME/devel/matlab/feti/figure1.pdf
+File7[$e]=$HOME/devel/matlab/pavoidfeti/graph_eigs.pdf
+File8[$e]=$HOME/Documents/presentations/22DD/main.pdf
+Name1[$e]=graph0logDof.pdf
+Name2[$e]=graph0logDof_hess.pdf
+Name3[$e]=Numerical_Optimization2006.pdf
+Name4[$e]=R. Fletcher - Practical methods of optimization-Wiley (2000).djvu
+Name5[$e]=main.pdf
+Name6[$e]=figure1.pdf
+Name7[$e]=graph_eigs.pdf
+Name8[$e]=main.pdf
