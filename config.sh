@@ -6,7 +6,6 @@ services=(
 )
 
 uservices=(
-  mpris-proxy.service
 )
 
 for s in "${services[@]}"; do
