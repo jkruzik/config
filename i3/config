@@ -229,4 +229,6 @@ exec picom -CGb
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always ~/.config/i3/i3-autoname-workspaces.py &
 exec_always --no-startup-id xsetroot -solid "#333333"
+exec setxkbmap -option 'grp:toggle' -layout us,cz -variant ,qwerty
+exec ckb-next
 
