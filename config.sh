@@ -53,6 +53,11 @@ ln -sf $(pwd)/xorg/xinitrc $HOME/.xinitrc
 ln -sf $(pwd)/xorg/xprofile $HOME/.xprofile
 ln -sf $(pwd)/xorg/Xresources $HOME/.Xresources
 
+machineresources=$(pwd)/xorg/Xresources-$(hostname)
+if [ -f "$machineresources" ]; then
+  ln -sf $machineresources $HOME/.config/Xresources-$(hostname)
+fi
+
 ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc
 ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile
 

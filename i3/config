@@ -102,15 +102,15 @@ set $workspace9 "9: Music"
 set $workspace10 "10: Mail"
 
 # assign workspaces to screens
-set $LEFT HDMI-1-1
-set $RIGHT eDP-1-1
+set_from_resource $LEFT monitor_primary primary
+set_from_resource $RIGHT monitor_secondary DisplayPort-1
 workspace 1 output $LEFT 
 workspace 2 output $LEFT 
 workspace 3 output $LEFT 
 workspace 4 output $LEFT 
 workspace 5 output $LEFT
-workspace 6 output $LEFT
-workspace 7 output $LEFT
+workspace 6 output $RIGHT
+workspace 7 output $RIGHT
 workspace 8 output $RIGHT
 workspace workspace9 output $RIGHT
 workspace workspace10 output $RIGHT
