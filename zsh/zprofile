@@ -2,6 +2,8 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
 
+source /etc/profile.d/debuginfod.sh
+
 export PATH=$PATH:~/bin
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
