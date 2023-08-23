@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000000
-SAVEHIST=10000
+SAVEHIST=1000000
 setopt autocd
 unsetopt beep
 bindkey -e
@@ -26,6 +26,11 @@ setopt complete_in_word
 setopt correct
 setopt hist_ignore_dups
 setopt hist_ignore_space
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
 setopt list_types
 
 export EDITOR="vim"
