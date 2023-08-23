@@ -55,13 +55,13 @@ let g:ycm_seed_identifiers_with_syntax = 1
 "octave
 augroup filetypedetect
   au! BufRead,BufNewFile *.m,*.oct set filetype=octave
-augroup END 
+augroup END
 
 if has("autocmd") && exists("+omnifunc")
   autocmd Filetype octave
     \ if &omnifunc == "" |
     \ setlocal omnifunc=syntaxcomplete#Complete |
-    \ endif 
+    \ endif
 endif
 
 " toggle gundo
@@ -79,6 +79,16 @@ if !exists('g:ycm_semantic_triggers')
 
 "vimtex
 let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_compiler_latexmk_engines = {'_':'-lualatex'}
+let g:vimtex_compiler_latexmk = {
+        \'options' : [
+        \   '-verbose',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \   '-shell-escape',
+        \ ],
+        \}
 
 " air-line
 let g:airline_powerline_fonts = 1
