@@ -8,3 +8,5 @@ export PATH=$PATH:~/bin
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
+sh ~/devel/scripts/battery-status.sh &
+
