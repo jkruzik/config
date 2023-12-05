@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+set $mod2 Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -104,16 +105,27 @@ set $workspace10 "10: Mail"
 # assign workspaces to screens
 set_from_resource $LEFT monitor_primary primary
 set_from_resource $RIGHT monitor_secondary DisplayPort-1
-workspace 1 output $LEFT 
-workspace 2 output $LEFT 
-workspace 3 output $LEFT 
-workspace 4 output $LEFT 
+workspace 1 output $LEFT
+workspace 2 output $LEFT
+workspace 3 output $LEFT
+workspace 4 output $LEFT
 workspace 5 output $LEFT
 workspace 6 output $RIGHT
 workspace 7 output $RIGHT
 workspace 8 output $RIGHT
-workspace workspace9 output $RIGHT
-workspace workspace10 output $RIGHT
+workspace 9 output $RIGHT
+workspace 10 output $RIGHT
+
+workspace 11 output $LEFT
+workspace 12 output $LEFT
+workspace 13 output $LEFT
+workspace 14 output $LEFT
+workspace 15 output $LEFT
+workspace 16 output $RIGHT
+workspace 17 output $RIGHT
+workspace 18 output $RIGHT
+workspace 19 output $RIGHT
+workspace 20 output $RIGHT
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -127,6 +139,17 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
+bindsym $mod2+1 workspace 11
+bindsym $mod2+2 workspace 12
+bindsym $mod2+3 workspace 13
+bindsym $mod2+4 workspace 14
+bindsym $mod2+5 workspace 15
+bindsym $mod2+6 workspace 16
+bindsym $mod2+7 workspace 17
+bindsym $mod2+8 workspace 18
+bindsym $mod2+9 workspace 19
+bindsym $mod2+0 workspace 20
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -139,9 +162,20 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+bindsym $mod2+Shift+1 move container to workspace 11
+bindsym $mod2+Shift+2 move container to workspace 12
+bindsym $mod2+Shift+3 move container to workspace 13
+bindsym $mod2+Shift+4 move container to workspace 14
+bindsym $mod2+Shift+5 move container to workspace 15
+bindsym $mod2+Shift+6 move container to workspace 16
+bindsym $mod2+Shift+7 move container to workspace 17
+bindsym $mod2+Shift+8 move container to workspace 18
+bindsym $mod2+Shift+9 move container to workspace 19
+bindsym $mod2+Shift+0 move container to workspace 20
+
 # bind to workspace
-assign [class="spotify"] $workspace9
-assign [class="Thunderbird"] $workspace10
+assign [class="Spotify"] $workspace9
+assign [class="thunderbird"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
