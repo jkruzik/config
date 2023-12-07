@@ -1,3 +1,4 @@
 XTerm.vt100.faceName: Hack:size=12
 *background: rgb:00/00/00
 *foreground: rgb:c0/c0/c0
+Xcursor.theme: breeze_cursors
