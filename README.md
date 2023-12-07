@@ -94,9 +94,14 @@ mkinicpio -p linux
 ```
 
 ### Bootloader
+sdXY := nvme0nXpY
+sdX := nvme0nX
 ```
-pacman -S efibootmgr
-efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw initrd=\initramfs-linux.img' --verbose
+CPU=amd OR intel
+UUID=$(blkid /dev/sdXY -o value -s UUID)
+pacman -S efibootmgr $CPU-ucode
+efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot
+ rw initrd=\${CPU}-ucode.img initrd=\initramfs-linux.imgr" --verbose
 ```
 
 ### Set password
