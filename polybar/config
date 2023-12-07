@@ -41,27 +41,17 @@ border-color = #000
 padding-left = 0
 padding-right = 0
 
-;font-0 = "Hack:size=10;1"
-;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = siji:pixelsize=10;1
-font-0 = Iosevka Term:fontformat=truetype:pixelsize=10:antialias=true;2
+font-0 = Iosevka Term:fontformat=truetype:pixelsize=10:antialias=true;3
 font-1 = Iosevka:fontformat=truetype:size=18:antialias=true;3
-font-2 = Iosevka Term::fontformat=truetype:pixelsize=9:antialias=true;2
-font-3 = "Material Icons:pixelsize=14;3"
-font-4 = "Font Awesome 5 Free:style=Solid:size=10;3"
-;font-3 = "Font Awesome 5 Free:style=Regular:size=10;3"
+font-2 = Iosevka Nerd Font::fontformat=truetype:pixelsize=9:antialias=true;2
+font-3 = Iosevka Nerd Font Mono::fontformat=truetype:pixelsize=24:antialias=true;6
+font-4 = Iosevka Nerd Font Mono::fontformat=truetype:pixelsize=18:antialias=true;4
+font-5 = Iosevka:fontformat=truetype:size=18:antialias=true;5
 
 modules-left = left_start_indicator left_end_indicator i3 i3_end_indicator
-modules-center = 
-;modules-right = right_end_indicator player-mpris-tail pulseaudio battery backlight wlan memory cpu temperature xkeyboard date
-modules-right = right_end_indicator pulseaudio battery backlight wlan memory cpu temperature xkeyboard date
+modules-center =
+modules-right = right_end_indicator player-mpris-tail pulseaudio battery backlight wlan memory cpu temperature xkeyboard date tray
 
-;tray-position = right
-;tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
-
-;wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = false
@@ -72,51 +62,70 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 
-tray-position = right
-tray-detached    = false
-tray-maxsize     = 12
-tray-background  = ${colors.background-1}
-tray-offset-x    = 0
-tray-offset-y    = 0
-tray-padding     = 0
-tray-scale       = 1.0
+[skin/light]
+format-background        = ${colors.background-2}
+format-prefix            = %{T3}%{T-}
+format-prefix-foreground = ${colors.background-2}
+format-prefix-background = ${colors.background-1}
+format-suffix            = %{T3}%{T-}
+format-suffix-foreground = ${colors.background-1}
+format-suffix-background = ${colors.background-2}
 
+label-background = ${colors.background-2}
+label-padding    = 1
+
+[skin/dark]
+format-background = ${colors.background-1}
+
+label-foreground = ${colors.foreground}
+label-background = ${colors.background-1}
+
+label-padding = 1
 
 [module/left_start_indicator]
 type = custom/text
 
-content            = " %{T2}%{T-} "
-content-foreground = ${colors.foreground}
-content-background = ${colors.background-2}
+format            = " %{T4}%{T-} "
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-2}
+format-prefix            = %{T3}%{T-}
+format-prefix-foreground = ${colors.background-1}
+format-prefix-background = ${colors.background-2}
 
 [module/left_end_indicator]
 type = custom/text
 
-content            = %{T3}%{T-}
-content-foreground = ${colors.background-2}
-content-background = ${colors.background-0}
+format            = %{T3}%{T-}
+format-foreground = ${colors.background-2}
+format-background = ${colors.background-0}
 
 [module/i3_end_indicator]
 type = custom/text
 
-content            = %{T3}%{T-}
-content-foreground = ${colors.background-1}
-content-background = ${colors.background-1}
+format            = %{T3}%{T-}
+format-foreground = ${colors.background-1}
+format-background = ${colors.background-1}
 
-content-prefix            = %{T3}%{T-}
-content-prefix-foreground = ${colors.background-0}
-content-prefix-background = ${colors.background-1}
+format-prefix            = %{T3}%{T-}
+format-prefix-foreground = ${colors.background-0}
+format-prefix-background = ${colors.background-1}
 
 [module/right_end_indicator]
 type = custom/text
 
-content            = %{T3}%{T-}
-content-foreground = ${colors.background-1}
-content-background = ${colors.background-0}
+format            = %{T3}%{T-}
+format-foreground = ${colors.background-1}
+format-background = ${colors.background-0}
 
-content-prefix            = %{T3}%{T-}
-content-prefix-foreground = ${colors.background-0}
-content-prefix-background = ${colors.background-1}
+format-prefix            = %{T3}%{T-}
+format-prefix-foreground = ${colors.background-0}
+format-prefix-background = ${colors.background-1}
+
+[module/tray]
+type = internal/tray
+
+tray-size        = 100
+tray-background  = ${colors.background-1}
 
 
 [module/xwindow]
@@ -124,6 +133,7 @@ type = internal/xwindow
 label = %title:0:30:...%
 
 [module/xkeyboard]
+inherit = skin/dark
 type = internal/xkeyboard
 blacklist-0 = num lock
 
@@ -132,8 +142,6 @@ blacklist-0 = num lock
 ;format-prefix-underline = ${colors.secondary}
 
 label-layout = %layout%
-label-foreground = ${colors.foreground}
-label-background = ${colors.background-1}
 label-layout-padding = 1
 
 ;label-indicator-padding = 2
@@ -185,19 +193,6 @@ label-urgent-background = ${colors.alert}
 ; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
@@ -221,57 +216,44 @@ bar-empty-foreground = ${colors.foreground-alt}
 
 
 [module/cpu]
+inherit= skin/light
 type = internal/cpu
 interval = 2
 
-label = %{T4}%{T-}%percentage:3%%
-label-padding = 1
-label-foreground = ${colors.foreground}
-label-background = ${colors.background-1}
+label = %{T5}󰒇%{T-}%percentage:3%%
 
 format = <ramp-load><label>%{F-}
-ramp-load-0 = 
-ramp-load-1 = 
-ramp-load-2 = 
-ramp-load-3 = 
-ramp-load-4 = 
-ramp-load-5 = 
-ramp-load-6 = 
+ramp-load-0 =
+ramp-load-1 =
+ramp-load-2 =
+ramp-load-3 =
+ramp-load-4 =
+ramp-load-5 =
+ramp-load-6 =
 ramp-load-7 = %{F#f2ff00}
 ramp-load-8 = %{F#ff8400}
 ramp-load-9 = %{F#bd2c40}
 
-format-background = ${colors.background-1}
-
 [module/memory]
+inherit= skin/dark
 type = internal/memory
 interval = 2
 
-label            = %{T4}%{T-}%percentage_used:3%%
+label            = %{T5}%{T-}%percentage_used:3%%
 ;label-foreground = ${colors.foreground}
-label-background = ${colors.background-2}
-label-padding    = 1
 
 format = <ramp-used><label>%{F-}
 
-ramp-used-0 = 
-ramp-used-1 = 
-ramp-used-2 = 
-ramp-used-3 = 
-ramp-used-4 = 
-ramp-used-5 = 
-ramp-used-6 = 
+ramp-used-0 =
+ramp-used-1 =
+ramp-used-2 =
+ramp-used-3 =
+ramp-used-4 =
+ramp-used-5 =
+ramp-used-6 =
 ramp-used-7 = %{F#f2ff00}
 ramp-used-8 = %{F#ff8400}
 ramp-used-9 = %{F#bd2c40}
-
-format-background        = ${colors.background-2}
-format-prefix            = %{T3}%{T-}
-format-prefix-foreground = ${colors.background-2}
-format-prefix-background = ${colors.background-1}
-format-suffix            = %{T3}%{T-}
-format-suffix-foreground = ${colors.background-1}
-format-suffix-background = ${colors.background-2}
 
 [module/wlan]
 type = internal/network
@@ -323,33 +305,35 @@ format-disconnected =
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
+inherit = skin/light
 type = internal/date
 interval = 1
 
-date = " %Y-%m-%d"
+date = %Y-%m-%d
 ;date-alt = " %Y-%m-%d"
 
 time = %H:%M:%S
 ;time-alt = %H:%M:%S
 
 label = %date% %time%
-label-foreground = ${colors.foreground}
-label-background = ${colors.background-2}
-
-format-prefix            = %{T3}%{T-}
-format-prefix-foreground = ${colors.background-2}
-format-prefix-background = ${colors.background-1}
-format-suffix            = %{T3}%{T-}
-format-suffix-foreground = ${colors.background-1}
-format-suffix-background = ${colors.background-2}
+;label-foreground = ${colors.foreground}
+;label-background = ${colors.background-2}
+;
+;format-prefix            = %{T3}%{T-}
+;format-prefix-foreground = ${colors.background-2}
+;format-prefix-background = ${colors.background-1}
+;format-suffix            = %{T3}%{T-}
+;format-suffix-foreground = ${colors.background-1}
+;format-suffix-background = ${colors.background-2}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <bar-volume> <label-volume> 
+format-volume = "<bar-volume><label-volume> "
 label-volume = %percentage:4%%
+bar-volume-spacing = 20pt
 
-format-muted = <bar-volume> <label-muted> 
+format-muted = <bar-volume> <label-muted>
 label-muted = muted
 ;label-muted-foreground = #666
 
@@ -363,11 +347,11 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 6
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 6
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 6
 bar-volume-empty-foreground = ${colors.background-1}
 
 format-volume-background        = ${colors.background-2}
@@ -388,7 +372,7 @@ format-muted-suffix-background = ${colors.background-2}
 
 [module/player-mpris-tail]
 type = custom/script
-exec = ~/.config/polybar/player-mpris-tail.py --icon-playing '' --icon-paused '' -f ' {icon} {artist} - {title} '
+exec = ~/.config/polybar/player-mpris-tail.py --icon-playing '󰏤' --icon-paused '󰐊' -f ' {icon} {artist} - {title} '
 tail = true
 click-left = ~/.config/polybar/player-mpris-tail.py play-pause &
 click-middle = ~/.config/polybar/player-mpris-tail.py previous &
