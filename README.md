@@ -28,7 +28,10 @@ dd if=/dev/zero of=/dev/mapper/wipe status=progress
 cryptsetup close wipe
 ```
 ### Partition
-
+```
+sdXY := nvme0nXpY
+sdX := nvme0nX
+```
 ```
 fdisk /dev/sdx
 mkswap /dev/sdx2
@@ -94,14 +97,12 @@ mkinicpio -p linux
 ```
 
 ### Bootloader
-sdXY := nvme0nXpY
-sdX := nvme0nX
 ```
 CPU=amd OR intel
 UUID=$(blkid /dev/sdXY -o value -s UUID)
 pacman -S efibootmgr $CPU-ucode
-efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot
- rw initrd=\${CPU}-ucode.img initrd=\initramfs-linux.imgr" --verbose
+efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode "cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot
+ rw initrd=\${CPU}-ucode.img initrd=\initramfs-linux.img" --verbose
 ```
 
 ### Set password
