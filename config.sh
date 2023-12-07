@@ -1,3 +1,4 @@
+#!/bin/bash
 # services
 services=(
   bluetooth.service

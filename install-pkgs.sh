@@ -1,122 +1,136 @@
-INSTALL_CMD='pikaur -S --noconfirm --needed'
+#!/bin/bash
+source ./install.sh
+
+# sys
+install linux-headers
+install dkms
 
 # graphics
-$INSTALL_CMD xorg-xbacklight 
-$INSTALL_CMD xorg-xrandr 
-$INSTALL_CMD xorg-xrdb
-$INSTALL_CMD xorg-xinit
-$INSTALL_CMD mesa-demos
-$INSTALL_CMD nvidia nvidia-settings lib32-nvidia-utils nvidia-prime
-$INSTALL_CMD xf86-video-modesetting
-#$INSTALL_CMD xf86-video-amdgpu mesa lib32-mesa
+install xorg-xbacklight
+install xorg-xrandr
+install xorg-xrdb
+install xorg-xinit
+install mesa-demos
+# AMD
+#install xf86-video-amdgpu mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
+# Intel
+install xf86-video-modesetting
+#install vulkan-intel lib32-vulkan-intel
+# NVIDIA
+install nvidia-dkms nvidia-settings lib32-nvidia-utils nvidia-utils lib32-nvidia-utils
+# PRIME
+install nvidia-prime
+#
+install vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools
+
+# network
+install openssh ksshaskpass kwallet-pam kwalletmanager
+install network-manager-applet networkmanager networkmanager-dmenu-git networkmanager-openconnect
+install openconnect
+install rsync
+
+# devel
+install llvm clang
+install cmake
+install ccache
+install gcc-fortran
+install gdb
+install git
+install blas-openblas
+install octave
+install openmp
+install python-pip
+install paraview
+install valgrind
+install xterm
+
+# usability
+install bluez
+install bluez-utils
+install cups
+install hdparm
+install lsof
+install ntfs-3g
+install ntp
+install psmisc
+install pipewire pipewire-pulse
+install zsh
+install zsh-completions
+
+# wm
+install breeze breeze-gtk
+install picom
+install dmenu
+install dunst
+install feh
+install i3-wm
+install i3lock
+install polybar-git
+install python-dbus
+install python-gobject
+install qt5ct
+install redshift
+install ttf-dejavu
+install ttf-fira-code ttf-fira-mono ttf-fira-sans
+install ttf-hack
+install ttf-iosevka ttf-iosevka-term ttf-iosevka-nerd
+install ttf-liberation
+install qlipper-git
+
+# tex
+install biber
+install gnuplot
+install texlive
+install texstudio
 
 # general apps
 ## archives
-$INSTALL_CMD ark unrar 
+install ark unrar zip p7zip
 ## browsers
-$INSTALL_CMD chromium 
-$INSTALL_CMD firefox 
-$INSTALL_CMD google-chrome 
-$INSTALL_CMD opera opera-ffmpeg-codecs 
+install chromium
+install firefox
+install google-chrome
+install opera opera-ffmpeg-codecs
 ## managers
-$INSTALL_CMD calibre 
-$INSTALL_CMD dolphin 
-$INSTALL_CMD dropbox 
-$INSTALL_CMD filelight 
-$INSTALL_CMD gwenview 
-$INSTALL_CMD golden-cheetah-git
+install calibre
+install dolphin
+install dropbox
+install filelight
+install gwenview kimageformats5
+install golden-cheetah-git
 ## others
-$INSTALL_CMD gimp
-$INSTALL_CMD gvim 
-$INSTALL_CMD inkscape 
-$INSTALL_CMD kate 
-$INSTALL_CMD konsole 
-$INSTALL_CMD ksysguard 
-$INSTALL_CMD ktorrent 
-$INSTALL_CMD libreoffice-fresh 
-$INSTALL_CMD smplayer mplayer mpv 
-$INSTALL_CMD okular 
-$INSTALL_CMD pavucontrol 
-$INSTALL_CMD spectacle 
-$INSTALL_CMD thunderbird 
-$INSTALL_CMD tigervnc 
-$INSTALL_CMD xournalpp 
-
-#network
-$INSTALL_CMD openssh ksshaskpass kwallet-pam kwalletmanager 
-$INSTALL_CMD network-manager-applet networkmanager networkmanager-dmenu-git networkmanager-openconnect 
-$INSTALL_CMD openconnect 
-$INSTALL_CMD rsync 
-
-# tex
-$INSTALL_CMD biber 
-$INSTALL_CMD gnuplot 
-$INSTALL_CMD texlive-most 
-$INSTALL_CMD texstudio 
-
-# devel
-$INSTALL_CMD llvm clang 
-$INSTALL_CMD cmake
-$INSTALL_CMD gcc-fortran 
-$INSTALL_CMD gdb 
-$INSTALL_CMD git 
-$INSTALL_CMD gitkraken 
-$INSTALL_CMD mercurial 
-$INSTALL_CMD octave
-$INSTALL_CMD openmp 
-$INSTALL_CMD python-pip 
-$INSTALL_CMD valgrind 
-$INSTALL_CMD xterm 
+install gimp
+install gvim
+install inkscape
+install kate
+install konsole
+install ksysguard
+install ktorrent
+install libreoffice-fresh
+install smplayer mplayer mpv
+install okular
+install pavucontrol
+install spectacle
+install thunderbird
+install tigervnc
+install xournalpp
+install yt-dlp
 
 # games
-$INSTALL_CMD wine-staging wine-mono wine_gecko 
-$INSTALL_CMD steam 
-$INSTALL_CMD supertuxkart 
-
-# wm
-$INSTALL_CMD breeze breeze-gtk 
-$INSTALL_CMD compton 
-$INSTALL_CMD dmenu 
-$INSTALL_CMD dunst
-$INSTALL_CMD feh
-$INSTALL_CMD i3-gaps 
-$INSTALL_CMD i3blocks 
-$INSTALL_CMD i3lock 
-$INSTALL_CMD i3status 
-$INSTALL_CMD polybar-git 
-$INSTALL_CMD python-dbus
-$INSTALL_CMD python-gobject
-$INSTALL_CMD qt5ct 
-$INSTALL_CMD redshift 
-$INSTALL_CMD sddm 
-$INSTALL_CMD ttf-dejavu 
-$INSTALL_CMD ttf-fira-code 
-$INSTALL_CMD ttf-fira-mono 
-$INSTALL_CMD ttf-fira-sans 
-$INSTALL_CMD ttf-font-awesome 
-$INSTALL_CMD ttf-hack 
-$INSTALL_CMD ttf-iosevka 
-$INSTALL_CMD ttf-iosevka-term 
-$INSTALL_CMD ttf-liberation 
-$INSTALL_CMD ttf-material-design-icons 
-$INSTALL_CMD qlipper-git 
-
-# usability
-$INSTALL_CMD bluez 
-$INSTALL_CMD bluez-utils 
-$INSTALL_CMD cups
-$INSTALL_CMD hdparm 
-$INSTALL_CMD lsof 
-$INSTALL_CMD ntfs-3g 
-$INSTALL_CMD ntp 
-$INSTALL_CMD poppler-glib 
-$INSTALL_CMD psmisc 
-$INSTALL_CMD pipewire pipewire-pulse 
-$INSTALL_CMD youtube-dl 
-$INSTALL_CMD zsh 
-$INSTALL_CMD zsh-completions 
-
+install wine-staging wine-mono wine_gecko
+install steam
+install lutris
+install supertuxkart
+install lib32-pipewire lib32-libpulse lib32-gnutls lib32-sdl2 lib32-gst-plugins-base  lib32-gst-libav libva lib32-libva
+install openal lib32-openal
+install mpg123 lib32-mpg123 v4l-utils lib32-v4l-utils
+install giflib lib32-giflib libpng lib32-libpng libjpeg-turbo lib32-libjpeg-turbo
+install sqlite lib32-sqlite
+install libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama
+isntall gnutls lib32-gnutls lib32-libgcrypt libgcrypt
+install libxslt lib32-libxslt
+install ocl-icd lib32-ocl-icd
 
 # other
-#$INSTALL_CMD ncurses5-compat-libs #matlab
+#install ncurses5-compat-libs #matlab
 

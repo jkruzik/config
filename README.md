@@ -131,7 +131,9 @@ makepkg -fsri
 cd ~
 git clone https://github.com/jkruzik/config.git
 cd config
-bash install.sh
+./install-ALPH.sh
+./install-pkgs.sh
+./config.sh
 ```
 
 
