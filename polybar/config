@@ -162,7 +162,7 @@ label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/i3]
 type = internal/i3
-format = <label-state>
+format = <label-state><label-mode>
 index-sort = true
 wrapping-scroll = true
 strip-wsnumbers = false
@@ -188,6 +188,9 @@ label-visible-foreground = ${colors.background-3}
 ; urgent = Workspace with urgency hint set
 label-urgent = "%{B#ff000f F#303651}%{T3}%{T-} %name% %{B#303651 F#ff000f}%{T3}%{T-}%{F-}%{B-}"
 label-urgent-background = ${colors.alert}
+
+label-mode = "%{B#ff8400 F#000}%{T3}%{T-} %mode% %{B#000 F#ff8400}%{T3}%{T-}%{F-}%{B-}"
+label-mode-padding = 0
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -372,7 +375,7 @@ format-muted-suffix-background = ${colors.background-2}
 
 [module/player-mpris-tail]
 type = custom/script
-exec = ~/.config/polybar/player-mpris-tail.py --icon-playing '󰏤' --icon-paused '󰐊' -f ' {icon} {artist} - {title} '
+exec = ~/.config/polybar/player-mpris-tail.py --icon-playing '󰏤' --icon-paused '󰐊' -f ' {icon} {:artist:t20:{artist}:}{:artist: - :}{:t80:{title}:} '
 tail = true
 click-left = ~/.config/polybar/player-mpris-tail.py play-pause &
 click-middle = ~/.config/polybar/player-mpris-tail.py previous &
