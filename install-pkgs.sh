@@ -35,11 +35,12 @@ install cmake
 install ccache
 install gcc-fortran
 install gdb
-install git
+install git git-lfs
 install blas-openblas
 install octave
 install openmp
 install python-pip
+install python-scipy
 install paraview
 install valgrind
 install xterm
@@ -80,6 +81,7 @@ install qlipper-git
 # tex
 install biber
 install gnuplot
+install python-matplotlib
 install texlive
 install texstudio
 
