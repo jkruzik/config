@@ -28,6 +28,7 @@ install openssh ksshaskpass kwallet-pam kwalletmanager
 install network-manager-applet networkmanager networkmanager-dmenu-git networkmanager-openconnect
 install openconnect
 install rsync
+install inetutils
 
 # devel
 install llvm clang
