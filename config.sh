@@ -7,6 +7,7 @@ services=(
 )
 
 uservices=(
+  bedtime.timer
 )
 
 for s in "${services[@]}"; do
@@ -49,6 +50,8 @@ ln -sf $(pwd)/polybar $HOME/.config/
 
 mkdir -p $HOME/.config/systemd/user
 ln -sf $(pwd)/systemd/mpris-proxy.service $HOME/.config/systemd/user/
+ln -sf $(pwd)/systemd/bedtime.timer $HOME/.config/systemd/user/
+ln -sf $(pwd)/systemd/bedtime.service $HOME/.config/systemd/user/
 
 ln -sf $(pwd)/xorg/xinitrc $HOME/.xinitrc
 ln -sf $(pwd)/xorg/xprofile $HOME/.xprofile

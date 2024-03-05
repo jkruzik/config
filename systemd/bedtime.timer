@@ -1,0 +1,12 @@
+[Unit]
+Description=Run bedtime reminder
+
+[Timer]
+OnCalendar=22:30/15:00
+OnCalendar=23:0/15:00
+OnCalendar=00:0/10:00
+OnCalendar=01..05:0/5:00
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

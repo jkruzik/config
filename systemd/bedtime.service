@@ -1,0 +1,7 @@
+[Unit]
+Description=Bedtime reminder
+
+[Service]
+Type=oneshot
+ExecStart=/home/jakub/devel/scripts/remind.sh
+
