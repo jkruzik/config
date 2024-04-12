@@ -21,7 +21,7 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 #opts
-setopt chase_links 
+setopt chase_links
 setopt complete_in_word
 setopt correct
 setopt hist_ignore_dups
@@ -65,13 +65,12 @@ alias rm='rm -v'
 alias cpv='cp'
 alias mvv='mv'
 alias rmv='rm'
-alias calc='python ~/devel/calc/calc.py'
-alias c='python ~/devel/calc/calc.py'
 alias rsmp='RANDOM=RANDOM; smplayer "$(ls | sed -n "$(($[${RANDOM}%$(ls | wc -l)]+1))p")"'
 alias rsmpr='RANDOM=`od -vAn -N4 -tu4 < /dev/random`; smplayer "$(find . -type f -size +100M | sed -n "$(($[${RANDOM}%$(find . -type f -size +100M| wc -l)]+1))p")"'
 alias dict='lynx slovnik.cz'
 alias rfeh='RANDOM=RANDOM; feh "$(ls -d $(find .)| sed -n "$(($[${RANDOM}%$(ls -d $(find .) | wc -l)]+1))p")"'
 alias rafeh='RANDOM=RANDOM; feh "$(ls -1| sed -n "$(($[${RANDOM}%$(ls -1 | wc -l)]+1))p")"'
+alias grep='grep -I'
 
 #auto ext
 alias -s doc=libreoffice
@@ -80,10 +79,15 @@ alias -s bz2='tar -xjvf'
 alias -s txt=$EDITOR
 
 # command L equivalent to command |less
-alias -g L='|less' 
+alias -g L='|less'
 
 # command S equivalent to command &> /dev/null &
 alias -g S='&> /dev/null &'
+
+# functions
+function psgrep() {
+  ps aux | grep "${1:-.}" | grep -v grep
+}
 
 #options
 autoload -U colors && colors

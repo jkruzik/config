@@ -8,7 +8,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -20,6 +19,9 @@ Plugin 'bling/vim-bufferline'
 Plugin 'sjl/gundo.vim'
 
 Plugin 'lervag/vimtex'
+Plugin 'sirver/ultisnips'
+
+Plugin 'madox2/vim-ai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,6 +83,8 @@ if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 "vimtex
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_compiler_latexmk_engines = {'_':'-lualatex'}
 let g:vimtex_compiler_latexmk = {
@@ -92,6 +96,16 @@ let g:vimtex_compiler_latexmk = {
         \   '-shell-escape',
         \ ],
         \}
+
+
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+"  - ctrl-j to expand
+"  - ctrl-j to go to next tabstop
+"  - ctrl-k to go to previous tabstop
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -201,6 +215,11 @@ set tabstop=2
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+setlocal spell
+set spelllang=en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM yank buffers
