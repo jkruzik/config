@@ -34,7 +34,7 @@ ln -sf $(pwd)/okular/okularrc $HOME/.config/
 
 ln -sf $(pwd)/qt/kdeglobals $HOME/.config/kdeglobals
 
-ln -sf $(pwd)/vim/vimrc $HOME/.vimrc
+ln -sf $(pwd)/vim $HOME/.vim
 
 ln -sf $(pwd)/gtk-3.0 $HOME/.config/
 
@@ -75,7 +75,4 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
-https://www.vim.org/scripts/script.php?script_id=3600
-mkdir -p ~/.vim/syntax
-curl 'https://www.vim.org/scripts/download_script.php?src_id=24730' -o ~/.vim/syntax/octave.vim
 
