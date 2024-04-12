@@ -107,6 +107,9 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
+" vim_ai
+let g:vim_ai_roles_config_file = $HOME.'/.vim/airoles.ini'
+
 " air-line
 let g:airline_powerline_fonts = 1
 
