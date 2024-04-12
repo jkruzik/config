@@ -40,6 +40,7 @@ install git git-lfs
 install blas-openblas
 install octave
 install openmp
+install openmpi hdf5-openmpi python-h5py-openmpi
 install python-pip
 install python-scipy
 install paraview
@@ -70,7 +71,7 @@ install i3lock
 install polybar-git
 install python-dbus
 install python-gobject
-install qt5ct
+install plasma-desktop
 install redshift
 install ttf-dejavu
 install ttf-fira-code ttf-fira-mono ttf-fira-sans
@@ -107,7 +108,7 @@ install gvim
 install inkscape
 install kate
 install konsole
-install ksysguard
+install plasma-systemmonitor
 install ktorrent
 install libreoffice-fresh
 install smplayer mplayer mpv

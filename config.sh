@@ -32,9 +32,7 @@ ln -sf $(pwd)/konsole/profile.profile $HOME/.local/share/konsole/
 
 ln -sf $(pwd)/okular/okularrc $HOME/.config/
 
-mkdir -p $HOME/.config/qt5ct
-ln -sf $(pwd)/qt5ct/qt5ct.conf $HOME/.config/qt5ct/
-cp /usr/share/color-schemes/BreezeDark.colors $HOME/.config/kdeglobals
+ln -sf $(pwd)/qt/kdeglobals $HOME/.config/kdeglobals
 
 ln -sf $(pwd)/vim/vimrc $HOME/.vimrc
 
