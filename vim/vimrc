@@ -23,6 +23,9 @@ Plugin 'sirver/ultisnips'
 
 Plugin 'madox2/vim-ai'
 
+Plugin 'rickhowe/diffchar.vim'
+Plugin 'rickhowe/wrapfiller'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on     " iequired!
@@ -46,6 +49,8 @@ let maplocalleader = ','
 inoremap jk <esc>
 " default to not read-only in vimdiff
 set noro
+nnoremap <silent> <leader>dp V:diffput<cr>
+nnoremap <silent> <leader>do V:diffget<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -109,6 +114,10 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " vim_ai
 let g:vim_ai_roles_config_file = $HOME.'/.vim/airoles.ini'
+
+" diffchar
+nmap <silent> <leader>o <Plug>GetDiffCharPair
+let g:DiffColors=3
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -218,6 +227,8 @@ set tabstop=2
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+set linebreak "Wrap by word
+set diffopt+=followwrap "Wrap in diff
 
 setlocal spell
 set spelllang=en_gb
@@ -289,3 +300,13 @@ function! StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre,FileWritePre,FileAppendPre,FilterWritePre * :call StripTrailingWhitespaces()
 
+func! GrammarCheckFn() abort range
+    let lines = getline(1, a:lastline)
+    botright vnew | setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile ft=tex
+    call setline(1, lines)
+    exe a:firstline.','.a:lastline .'AIEdit /grammar'
+    windo diffthis
+    call cursor(a:firstline, 1)
+endfunc
+command! -range GrammarCheck <line1>,<line2>call GrammarCheckFn()
+xnoremap <leader>g :GrammarCheck<CR>
