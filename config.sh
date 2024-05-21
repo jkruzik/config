@@ -44,6 +44,8 @@ ln -sf $(pwd)/octave $HOME/.config/
 
 ln -sf $(pwd)/picom $HOME/.config/
 
+ln -sf $(pwd)/pikaur/pikaur.conf $HOME/.config/
+
 ln -sf $(pwd)/polybar $HOME/.config/
 
 mkdir -p $HOME/.config/systemd/user

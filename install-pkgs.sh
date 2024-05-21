@@ -71,7 +71,7 @@ install i3lock
 install polybar-git
 install python-dbus
 install python-gobject
-install plasma-desktop
+install plasma-desktop plasma5-integration
 install redshift
 install ttf-dejavu
 install ttf-fira-code ttf-fira-mono ttf-fira-sans
