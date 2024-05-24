@@ -84,8 +84,7 @@ install qlipper-git
 install biber
 install gnuplot
 install python-matplotlib
-install texlive
-install texstudio
+install texlive texlive-langenglish texlive-langczechslovak
 
 # general apps
 ## archives
@@ -94,7 +93,7 @@ install ark unrar zip p7zip
 install chromium
 install firefox
 install google-chrome
-install opera opera-ffmpeg-codecs
+install opera opera-ffmpeg-codecs-bin
 ## managers
 install calibre
 install dolphin
@@ -108,7 +107,7 @@ install gvim
 install inkscape
 install kate
 install konsole
-install plasma-systemmonitor
+install ksysguard6-git
 install ktorrent
 install libreoffice-fresh
 install smplayer mplayer mpv
