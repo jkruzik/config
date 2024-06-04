@@ -114,6 +114,61 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " vim_ai
 let g:vim_ai_roles_config_file = $HOME.'/.vim/airoles.ini'
+let initial_prompt =<< trim END
+>>> system
+
+You are going to play a role of a completion engine with following parameters:
+Task: Provide compact code/text completion, generation, transformation or explanation
+Topic: general programming and text editing
+Style: Plain result without any commentary, unless commentary is necessary
+Audience: Users of text editor and programmers that need to transform/generate text
+END
+
+let chat_engine_config = {
+\  "engine": "chat",
+\  "options": {
+\    "model": "gpt-4o",
+\    "endpoint_url": "https://api.openai.com/v1/chat/completions",
+\    "max_tokens": 1000,
+\    "temperature": 0.1,
+\    "request_timeout": 20,
+\    "selection_boundary": "",
+\    "initial_prompt": initial_prompt,
+\  },
+\}
+
+let g:vim_ai_complete = chat_engine_config
+let g:vim_ai_edit = chat_engine_config
+
+let s:initial_chat_prompt =<< trim END
+>>> system
+
+You are a general assistant.
+If you attach a code block add syntax type after ``` to enable syntax highlighting.
+END
+
+let g:vim_ai_chat = {
+\  "options": {
+\    "model": "gpt-4o",
+\    "endpoint_url": "https://api.openai.com/v1/chat/completions",
+\    "max_tokens": 1000,
+\    "temperature": 0.8,
+\    "request_timeout": 20,
+\    "enable_auth": 1,
+\    "selection_boundary": "",
+\    "initial_prompt": s:initial_chat_prompt,
+\  },
+\  "ui": {
+\    "code_syntax_enabled": 1,
+\    "populate_options": 0,
+\    "open_chat_command": "preset_below",
+\    "scratch_buffer_keep_open": 0,
+\    "paste_mode": 1,
+\  },
+\}
+
+let g:vim_ai_debug = 0
+let g:vim_ai_debug_log_file = "/dev/shm/vim_ai_debug.log"
 
 " diffchar
 nmap <silent> <leader>o <Plug>GetDiffCharPair
