@@ -30,6 +30,9 @@ ln -sf $(pwd)/konsole/konsolerc $HOME/.config/
 mkdir -p $HOME/.local/share/konsole/
 ln -sf $(pwd)/konsole/profile.profile $HOME/.local/share/konsole/
 
+mkdir -p $HOME/.config/latexmk
+ln -sf $(pwd)/latexmk/latexmkrc $HOME/.config/latexmk/
+
 ln -sf $(pwd)/okular/okularrc $HOME/.config/
 
 ln -sf $(pwd)/qt/kdeglobals $HOME/.config/kdeglobals

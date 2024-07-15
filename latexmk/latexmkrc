@@ -1,0 +1,16 @@
+$bibtex_use=1.5;
+
+STDOUT->autoflush;
+STDERR->autoflush;
+
+## EPS to PDF conversion hook
+@cus_dep_list = (@cus_dep_list, "eps pdf 0 eps2pdf");
+sub eps2pdf {
+   system("epstopdf $_[0].eps");
+}
+
+## nomenclature
+add_cus_dep('nlo', 'nls', 0, 'nlo2nls');
+sub nlo2nls {
+  system("makeindex $_[0].nlo -s nomencl.ist -o $_[0].nls -t $_[0].nlg" );
+}
