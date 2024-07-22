@@ -1,0 +1,6 @@
+#!/bin/sh
+for f in "vim/spell/*.add"; do
+  if [ $f -nt $f".spl" ]; then
+    vim -T dumb -n -i NONE -u NONE -U NONE -c "mkspell! $f" -c q
+  fi
+done
