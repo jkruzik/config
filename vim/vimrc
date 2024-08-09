@@ -91,6 +91,8 @@ if !exists('g:ycm_semantic_triggers')
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_automatic = 0
+let g:vimtex_view_use_temp_files = 1
 let g:vimtex_compiler_latexmk_engines = {'_':'-lualatex'}
 let g:vimtex_compiler_latexmk = {
         \'options' : [
@@ -119,7 +121,7 @@ let initial_prompt =<< trim END
 
 You are going to play a role of a completion engine with following parameters:
 Task: Provide compact code/text completion, generation, transformation or explanation
-Topic: general programming and text editing
+Topic: general programming and text editing for academic writing
 Style: Plain result without any commentary, unless commentary is necessary
 Audience: Users of text editor and programmers that need to transform/generate text
 END

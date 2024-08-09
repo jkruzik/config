@@ -4,6 +4,9 @@ DefaultProfile=profile.profile
 [Favorite Profiles]
 Favorites=
 
+[General]
+ConfigVersion=1
+
 [KonsoleWindow]
 ShowMenuBarByDefault=false
 
