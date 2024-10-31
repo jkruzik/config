@@ -7,3 +7,6 @@ Parent=FALLBACK/
 
 [Scrolling]
 HistoryMode=2
+
+[Terminal Features]
+FlowControlEnabled=false

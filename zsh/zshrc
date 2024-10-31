@@ -32,6 +32,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
 setopt list_types
+setopt noflowcontrol
 
 export EDITOR="vim"
 export TERM='konsole-256color'
@@ -70,7 +71,8 @@ alias rsmpr='RANDOM=`od -vAn -N4 -tu4 < /dev/random`; smplayer "$(find . -type f
 alias dict='lynx slovnik.cz'
 alias rfeh='RANDOM=RANDOM; feh "$(ls -d $(find .)| sed -n "$(($[${RANDOM}%$(ls -d $(find .) | wc -l)]+1))p")"'
 alias rafeh='RANDOM=RANDOM; feh "$(ls -1| sed -n "$(($[${RANDOM}%$(ls -1 | wc -l)]+1))p")"'
-alias grep='grep -I'
+alias grep='grep -I --color'
+alias v='vim'
 
 #auto ext
 alias -s doc=libreoffice
