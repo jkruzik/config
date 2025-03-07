@@ -220,7 +220,8 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-#MY
+# Floating by default
+# steam
 for_window [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 for_window [class="^Steam$" title=".* - Chat"] floating enable
@@ -231,6 +232,9 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+# matplotlib
+for_window [class="^matplotlib$"] floating enable
+
 #border
 #new_window 1pixel
 # Sreen brightness controls
@@ -262,9 +266,10 @@ bindsym Control+Mod1+l exec i3lock -f -c 111111
 #exec parcellite
 #exec nvidia-settings --assign "CurrentMetaMode=DPY-6.1: nvidia-auto-select @1920x1080 +1920+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}, DPY-6.3: nvidia-auto-select @1920x1080 +0+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}"
 exec picom -CGb
+exec dunst
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always ~/.config/i3/i3-autoname-workspaces.py &
 exec_always --no-startup-id xsetroot -solid "#333333"
-exec setxkbmap -option 'grp:toggle' -layout us,cz -variant ,qwerty
+exec setxkbmap -option grp:sclk_toggle -option grp_led:scroll -option caps:escape -option shift:both_capslock -layout us,cz -variant ,qwerty
 exec ckb-next
 
