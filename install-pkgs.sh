@@ -44,6 +44,8 @@ install openmpi hdf5-openmpi python-h5py-openmpi
 install python-pip
 install python-scipy
 install paraview
+install strace
+install heaptrack
 install valgrind
 install xterm
 
