@@ -102,6 +102,7 @@ install filelight
 install gwenview kimageformats5
 install golden-cheetah-git
 ## others
+install alacritty
 install gimp
 install gvim
 install inkscape
