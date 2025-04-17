@@ -59,8 +59,7 @@ install ntfs-3g
 install ntp
 install psmisc
 install pipewire pipewire-pulse
-install zsh
-install zsh-completions
+install zsh zsh-completions zsh-syntax-highlighting zsh-vi-mode
 
 # wm
 install breeze breeze-gtk

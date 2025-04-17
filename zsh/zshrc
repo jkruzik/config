@@ -4,7 +4,6 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt autocd
 unsetopt beep
-bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jakub/.zshrc'
@@ -35,13 +34,13 @@ setopt list_types
 setopt noflowcontrol
 
 export EDITOR="vim"
-export TERM='konsole-256color'
-###easy life
-# tab completion for PID :D
+export TERM='xterm-256color'
+
+#tab completion for PID
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*' force-list always
 
-# useful for path editing — backward-delete-word, but with / as additional delimiter
+#useful for path editing — backward-delete-word, but with / as additional delimiter
 backward-delete-to-slash () {
   local WORDCHARS=${WORDCHARS//\//}
   zle .backward-delete-word
@@ -74,26 +73,48 @@ alias rafeh='RANDOM=RANDOM; feh "$(ls -1| sed -n "$(($[${RANDOM}%$(ls -1 | wc -l
 alias grep='grep -I --color'
 alias v='vim'
 
+#global aliases
+alias -g L='|less'
+#alias -g S='&> /dev/null &'
+
+#functions
+function psgrep() {
+  ps aux | grep "${1:-.}" | grep -v grep
+}
+
 #auto ext
 alias -s doc=libreoffice
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
 alias -s txt=$EDITOR
 
-# command L equivalent to command |less
-alias -g L='|less'
+#vi mode
+zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+  ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+  ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+}
+ZVM_INIT_MODE=sourcing
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-# command S equivalent to command &> /dev/null &
-alias -g S='&> /dev/null &'
-
-# functions
-function psgrep() {
-  ps aux | grep "${1:-.}" | grep -v grep
+MODE_COLOR="cyan"
+function zvm_after_select_vi_mode() {
+  case $ZVM_MODE in
+    $ZVM_MODE_NORMAL)
+      MODE_COLOR="#d7ff00"
+    ;;
+    $ZVM_MODE_INSERT)
+      MODE_COLOR="cyan"
+    ;;
+  esac
 }
 
-#options
+#prompt
+setopt PROMPT_SUBST
 autoload -U colors && colors
-PROMPT="%{$fg[cyan]%}%n@%m %1~ %#%{$reset_color%} "
+PROMPT='%F{$MODE_COLOR}%n@%m %1~ %#%{$reset_color%} '
+
 export PATH=$PATH:/usr/bin:~/bin
 
 ###key binding
@@ -131,4 +152,7 @@ unfunction zkbd_file; unset keyfile ret
 bindkey '^[w' backward-delete-to-slash
 
 bindkey '^r' history-incremental-search-backward
+
+#syntax highlighting must be loaded last
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
