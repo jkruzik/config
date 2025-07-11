@@ -17,7 +17,7 @@ install mesa-demos
 install xf86-video-modesetting
 #install vulkan-intel lib32-vulkan-intel
 # NVIDIA
-install nvidia-dkms nvidia-settings lib32-nvidia-utils nvidia-utils lib32-nvidia-utils
+install nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils
 # PRIME
 install nvidia-prime
 #
@@ -29,36 +29,53 @@ install network-manager-applet networkmanager networkmanager-dmenu-git networkma
 install openconnect
 install rsync
 install inetutils
+install wget
 
 # devel
-install llvm clang
+install llvm clang clang-format-static-bin
 install cmake
-install ccache
+install cython
 install gcc-fortran
 install gdb
 install git git-lfs
-install blas-openblas
-install octave
-install openmp
-install openmpi hdf5-openmpi python-h5py-openmpi
 install python-pip
-install python-scipy
-install paraview
 install strace
 install heaptrack
 install valgrind
 install xterm
 
+# devel extra
+install bear
+install boost
+install blas-openblas
+install ccache
+install cloc sloccount
+isntall docker apptainer
+install gmsh-bin
+install mercurial subversion
+install octave
+install openmp
+install openmpi hdf5-openmpi python-h5py-openmpi
+install python-scipy python-scikit-learn
+install python-mpmath
+install paraview
+
 # usability
 install bluez
 install bluez-utils
+install cpupower
 install cups
+install dmidecode
+isntall exfatprogs
 install hdparm
 install lsof
+install man-pages man-db tldr
 install ntfs-3g
 install ntp
 install psmisc
 install pipewire pipewire-pulse
+install playerctl
+install ripgrep ripgrep-all
 install zsh zsh-completions zsh-syntax-highlighting zsh-vi-mode
 
 # wm
@@ -67,9 +84,9 @@ install picom
 install dmenu
 install dunst
 install feh
-install i3-wm
+install i3-wm python-i3ipc
 install i3lock
-install polybar-git
+install polybar
 install python-dbus
 install python-gobject
 install plasma-desktop plasma5-integration
@@ -79,13 +96,16 @@ install ttf-fira-code ttf-fira-mono ttf-fira-sans
 install ttf-hack
 install ttf-iosevka ttf-iosevka-term ttf-iosevka-nerd
 install ttf-liberation
+#install ttf-ms-win11-auto
 install qlipper-git
 
 # tex
 install biber
 install gnuplot
 install python-matplotlib
+install pdf2svg
 install texlive texlive-langenglish texlive-langczechslovak
+install bibtex2html-git
 
 # general apps
 ## archives
@@ -106,23 +126,26 @@ install golden-cheetah-git
 install alacritty
 install gimp
 install gvim
-install inkscape
+install inkscape pstoedit
 install kate
 install konsole
-install ksysguard6-git
+install btop ksysguard6-git
 install ktorrent
-install libreoffice-fresh
+install libreoffice-fresh hunspell-cs hunspell-en_us hyphen-cs hyphen-en
 install smplayer mplayer mpv
 install okular
 install pavucontrol
 install spectacle
+install spotify-launcher
 install thunderbird
 install tigervnc
-install xournalpp
+install xournalpp wacomtablet
 install yt-dlp
+install zathura zathura-djvu zathura-pdf-mupdf zathura-pdf-poppler zathura-ps
 
 # games
-install wine-staging wine-mono wine_gecko
+install wine-staging wine-mono wine_gecko winetricks
+install dxvk-bin vkd3d-proton-bin
 install steam
 install lutris
 install supertuxkart
@@ -138,4 +161,4 @@ install ocl-icd lib32-ocl-icd
 
 # other
 #install ncurses5-compat-libs #matlab
-
+#install ckb-next #work kb
