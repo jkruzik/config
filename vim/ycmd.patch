@@ -1,0 +1,17 @@
+diff --git a/ycmd/completers/cpp/clangd_completer.py b/ycmd/completers/cpp/clangd_completer.py
+index 9fa32873..33749fb7 100644
+--- a/ycmd/completers/cpp/clangd_completer.py
++++ b/ycmd/completers/cpp/clangd_completer.py
+@@ -270,8 +270,10 @@ class ClangdCompleter( language_server_completer.LanguageServerCompleter ):
+   def GetDoc( self, request_data ):
+     try:
+       # Just pull `value` out of the textDocument/hover response
+-      return responses.BuildDetailedInfoResponse(
+-          self.GetHoverResponse( request_data )[ 'value' ] )
++      hover_value = self.GetHoverResponse( request_data )[ 'value' ]
++      if '@' in hover_value:
++          hover_value = hover_value.split("@")[1][:-1]
++      return responses.BuildDetailedInfoResponse(hover_value)
+     except language_server_completer.NoHoverInfoException:
+       raise RuntimeError( 'No documentation available.' )
+ 
