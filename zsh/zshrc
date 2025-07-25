@@ -49,11 +49,8 @@ zle -N backward-delete-to-slash
 
 #aliases devel
 alias cdperm='cd ~/devel/permon/'
-alias cdfllop='cd ~/devel/permon/fllop_jakub/'
-alias cdpcube='cd ~/devel/permon/permoncube/'
-
-#aliases servers
-alias archer='ssh -t archer "exec zsh"'
+alias gsr='~/devel/scripts/git_status_reverse.sh'
+alias ga='python ~/devel/scripts/git_add_interactive.py'
 
 #aliases
 alias ls='ls --color=auto'
