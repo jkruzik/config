@@ -106,6 +106,7 @@ function zvm_after_select_vi_mode() {
       MODE_COLOR="cyan"
     ;;
   esac
+  zle .reset-prompt #for ctrl-c from normal mode
 }
 
 #prompt
