@@ -70,6 +70,11 @@ fi
 ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc
 ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile
 
+mkdir -p $HOME/devel/scripts
+for f in $(pwd)/scripts/*; do
+  ln -sf $f $HOME/devel/scripts/
+done
+
 chsh -s /bin/zsh
 
 for s in "${uservices[@]}"; do
