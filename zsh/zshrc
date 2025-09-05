@@ -152,6 +152,33 @@ bindkey '^[w' backward-delete-to-slash
 
 bindkey '^r' history-incremental-search-backward
 
+man() {
+    # First try the real man
+    /usr/bin/man "$@" 2>/dev/null
+    if [ $? -eq 0 ]; then
+        return 0
+    fi
+
+    # If no man page, check if the command exists
+    if command -v "$1" >/dev/null 2>&1; then
+        # Try --help
+        if "$1" --help >/dev/null 2>&1; then
+            "$1" --help 2>&1 | less
+            return 0
+        fi
+        # Try -h
+        if "$1" -h >/dev/null 2>&1; then
+            "$1" -h 2>&1 | less
+            return 0
+        fi
+        echo "Command '$1' exists but has no man page or usable --help/-h"
+        return 1
+    else
+        echo "Command '$1' not found"
+        return 127
+    fi
+}
+
 #syntax highlighting must be loaded last
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
