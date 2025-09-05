@@ -98,6 +98,7 @@ install ttf-iosevka ttf-iosevka-term ttf-iosevka-nerd
 install ttf-liberation
 #install ttf-ms-win11-auto
 install qlipper-git
+install qt5ct-kde qt6ct-kde
 
 # tex
 install biber
