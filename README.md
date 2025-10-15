@@ -61,7 +61,8 @@ vim /etc/pacman.d/mirrorlist
 
 ## Base install
 ```
-pacstrap /mnt base base-devel vim
+CPU=amd OR intel
+pacstrap /mnt base base-devel linux linux-firmware efibootmgr $CPU-ucode vim
 ```
 
 ## Configure
@@ -98,11 +99,10 @@ mkinicpio -p linux
 
 ### Bootloader
 ```
-CPU=amd OR intel
 UUID=$(blkid /dev/sdXY -o value -s UUID)
-pacman -S efibootmgr $CPU-ucode
-efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode "cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot
- rw initrd=\${CPU}-ucode.img initrd=\initramfs-linux.img" --verbose
+efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux"
+--loader /vmlinuz-linux --unicode
+"cryptdevice=UUID=${UUID}:cryptroot root=/dev/mapper/cryptroot rw initrd=\initramfs-linux.img" --verbose
 ```
 
 ### Set password

@@ -14,12 +14,12 @@ install mesa-demos
 # AMD
 #install xf86-video-amdgpu mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 # Intel
-install xf86-video-modesetting
+#install xf86-video-modesetting
 #install vulkan-intel lib32-vulkan-intel
 # NVIDIA
-install nvidia-dkms nvidia-settings nvidia-utils lib32-nvidia-utils
+install nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils
 # PRIME
-install nvidia-prime
+#install nvidia-prime
 #
 install vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools
 
@@ -58,6 +58,10 @@ install openmp
 install openmpi hdf5-openmpi python-h5py-openmpi
 install python-scipy python-scikit-learn
 install python-mpmath
+install python-sympy
+install python-ipyparallel
+install python-setuptools
+install jupyter-notebook
 install paraview
 
 # usability
@@ -119,10 +123,9 @@ install opera opera-ffmpeg-codecs-bin
 ## managers
 install calibre
 install dolphin
-install dropbox
 install filelight
 install gwenview kimageformats5
-install golden-cheetah-git
+#install golden-cheetah-git
 ## others
 install alacritty
 install gimp
@@ -142,7 +145,7 @@ install thunderbird
 install tigervnc
 install xournalpp wacomtablet
 install yt-dlp
-install zathura zathura-djvu zathura-pdf-mupdf zathura-pdf-poppler zathura-ps
+install zathura zathura-djvu zathura-pdf-mupdf zathura-ps
 
 # games
 install wine-staging wine-mono wine_gecko winetricks
@@ -150,15 +153,15 @@ install dxvk-bin vkd3d-proton-bin
 install steam
 install lutris
 install supertuxkart
-install lib32-pipewire lib32-libpulse lib32-gnutls lib32-sdl2 lib32-gst-plugins-base  lib32-gst-libav libva lib32-libva
-install openal lib32-openal
-install mpg123 lib32-mpg123 v4l-utils lib32-v4l-utils
-install giflib lib32-giflib libpng lib32-libpng libjpeg-turbo lib32-libjpeg-turbo
-install sqlite lib32-sqlite
-install libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama
-isntall gnutls lib32-gnutls lib32-libgcrypt libgcrypt
-install libxslt lib32-libxslt
-install ocl-icd lib32-ocl-icd
+#install lib32-pipewire lib32-libpulse lib32-gnutls lib32-sdl2 lib32-gst-plugins-base  lib32-gst-libav libva lib32-libva
+#install openal lib32-openal
+#install mpg123 lib32-mpg123 v4l-utils lib32-v4l-utils
+#install giflib lib32-giflib libpng lib32-libpng libjpeg-turbo lib32-libjpeg-turbo
+#install sqlite lib32-sqlite
+#install libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama
+#isntall gnutls lib32-gnutls lib32-libgcrypt libgcrypt
+#install libxslt lib32-libxslt
+#install ocl-icd lib32-ocl-icd
 
 # other
 #install ncurses5-compat-libs #matlab

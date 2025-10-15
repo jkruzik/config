@@ -114,7 +114,7 @@ setopt PROMPT_SUBST
 autoload -U colors && colors
 PROMPT='%F{$MODE_COLOR}%n@%m %1~ %#%{$reset_color%} '
 
-export PATH=$PATH:/usr/bin:~/bin
+export PATH=$PATH:/usr/bin:~/bin:~/.local/bin
 
 ###key binding
 autoload zkbd

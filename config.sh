@@ -37,7 +37,12 @@ ln -sf $(pwd)/latexmk/latexmkrc $HOME/.config/latexmk/
 
 ln -sf $(pwd)/okular/okularrc $HOME/.config/
 
+mkdir -p $HOME/.config/qt5ct
+mkdir -p $HOME/.config/qt6ct
 ln -sf $(pwd)/qt/kdeglobals $HOME/.config/kdeglobals
+ln -sf $(pwd)/qt/qt5ct.conf $HOME/.config/qt5ct/qt5ct.conf
+ln -sf $(pwd)/qt/qt6ct.conf $HOME/.config/qt6ct/qt6ct.conf
+ln -sf $(pwd)/qt/style-colors.conf $HOME/.config/qt6ct/style-colors.conf
 
 ln -sf $(pwd)/vim $HOME/.vim
 
@@ -86,5 +91,5 @@ done
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+./install.py --clangd-completer
 
