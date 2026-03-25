@@ -18,6 +18,7 @@ install mesa-demos
 #install vulkan-intel lib32-vulkan-intel
 # NVIDIA
 install nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils
+install cuda
 # PRIME
 #install nvidia-prime
 #
@@ -59,6 +60,7 @@ install openmpi hdf5-openmpi python-h5py-openmpi
 install python-scipy python-scikit-learn
 install python-mpmath
 install python-sympy
+install python-pandas python-seaborn
 install python-ipyparallel
 install python-setuptools
 install jupyter-notebook
