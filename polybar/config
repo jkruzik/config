@@ -171,7 +171,7 @@ strip-wsnumbers = false
 pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
-label-focused = "%{B#888}%{F#000}%{T3}%{T-} %index% - %name% %{B#000}%{F#888}%{T3}%{T-}%{F-}%{B-}"
+label-focused = "%{B#888}%{F#000}%{T3}%{T-} %name% - %name% %{B#000}%{F#888}%{T3}%{T-}%{F-}%{B-}"
 label-focused-background = ${colors.background-0}
 label-focused-foreground = ${colors.background-3}
 
