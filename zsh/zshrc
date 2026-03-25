@@ -51,6 +51,7 @@ zle -N backward-delete-to-slash
 alias cdperm='cd ~/devel/permon/'
 alias gsr='~/devel/scripts/git_status_reverse.sh'
 alias ga='python ~/devel/scripts/git_add_interactive.py'
+alias mpir='~/devel/scripts/mpir.sh'
 
 #aliases
 alias ls='ls --color=auto'
