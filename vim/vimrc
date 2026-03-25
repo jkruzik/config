@@ -21,6 +21,8 @@ Plugin 'sjl/gundo.vim'
 Plugin 'lervag/vimtex'
 Plugin 'sirver/ultisnips'
 
+Plugin 'instant-markdown/vim-instant-markdown'
+
 Plugin 'madox2/vim-ai'
 
 Plugin 'rickhowe/diffchar.vim'
