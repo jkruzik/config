@@ -116,16 +116,16 @@ workspace 8 output $RIGHT
 workspace 9 output $RIGHT
 workspace 10 output $RIGHT
 
-workspace 1A output $LEFT
-workspace 2A output $LEFT
-workspace 3A output $LEFT
-workspace 4A output $LEFT
-workspace 5A output $LEFT
-workspace 6A output $RIGHT
-workspace 7A output $RIGHT
-workspace 8A output $RIGHT
-workspace 9A output $RIGHT
-workspace 10A output $RIGHT
+workspace A1 output $LEFT
+workspace A2 output $LEFT
+workspace A3 output $LEFT
+workspace A4 output $LEFT
+workspace A5 output $LEFT
+workspace A6 output $RIGHT
+workspace A7 output $RIGHT
+workspace A8 output $RIGHT
+workspace A9 output $RIGHT
+workspace A10 output $RIGHT
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -139,16 +139,16 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindsym $mod2+1 workspace 1A
-bindsym $mod2+2 workspace 2A
-bindsym $mod2+3 workspace 3A
-bindsym $mod2+4 workspace 4A
-bindsym $mod2+5 workspace 5A
-bindsym $mod2+6 workspace 6A
-bindsym $mod2+7 workspace 7A
-bindsym $mod2+8 workspace 8A
-bindsym $mod2+9 workspace 9A
-bindsym $mod2+0 workspace 10A
+bindsym $mod2+1 workspace A1
+bindsym $mod2+2 workspace A2
+bindsym $mod2+3 workspace A3
+bindsym $mod2+4 workspace A4
+bindsym $mod2+5 workspace A5
+bindsym $mod2+6 workspace A6
+bindsym $mod2+7 workspace A7
+bindsym $mod2+8 workspace A8
+bindsym $mod2+9 workspace A9
+bindsym $mod2+0 workspace A10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -162,20 +162,20 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym $mod2+Shift+1 move container to workspace 1A
-bindsym $mod2+Shift+2 move container to workspace 2A
-bindsym $mod2+Shift+3 move container to workspace 3A
-bindsym $mod2+Shift+4 move container to workspace 4A
-bindsym $mod2+Shift+5 move container to workspace 5A
-bindsym $mod2+Shift+6 move container to workspace 6A
-bindsym $mod2+Shift+7 move container to workspace 7A
-bindsym $mod2+Shift+8 move container to workspace 8A
-bindsym $mod2+Shift+9 move container to workspace 9A
-bindsym $mod2+Shift+0 move container to workspace 10A
+bindsym $mod2+Shift+1 move container to workspace A1
+bindsym $mod2+Shift+2 move container to workspace A2
+bindsym $mod2+Shift+3 move container to workspace A3
+bindsym $mod2+Shift+4 move container to workspace A4
+bindsym $mod2+Shift+5 move container to workspace A5
+bindsym $mod2+Shift+6 move container to workspace A6
+bindsym $mod2+Shift+7 move container to workspace A7
+bindsym $mod2+Shift+8 move container to workspace A8
+bindsym $mod2+Shift+9 move container to workspace A9
+bindsym $mod2+Shift+0 move container to workspace A10
 
 # bind to workspace
-assign [class="Spotify"] 9A
-assign [class="org.mozilla.Thunderbird"] 10A
+assign [class="Spotify"] A9
+assign [class="org.mozilla.Thunderbird"] A10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
