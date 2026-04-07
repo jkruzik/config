@@ -73,11 +73,11 @@ install cpupower
 install cups
 install dmidecode
 isntall exfatprogs
+install easyeffects lsp-plugins
 install hdparm
 install lsof
 install man-pages man-db tldr
 install ntfs-3g
-install ntp
 install psmisc
 install pipewire pipewire-pulse
 install playerctl
